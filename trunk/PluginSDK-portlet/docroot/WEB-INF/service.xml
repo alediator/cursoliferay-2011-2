@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 6.0.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_6_0_0.dtd">
+<service-builder package-path="es.emergya.negocio">
+	<author>adiaz</author>
+	<namespace>Emergya</namespace>
+
+	<entity name="Informe" local-service="true" remote-service="false">
+
+		<!-- PK fields -->
+
+		<column name="informeId" type="long" primary="true" />
+
+		<!-- Audit fields -->
+		
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="groupId" type="long" />
+
+		<!-- Other fields -->
+
+		<column name="titulo" type="String" />
+		<column name="descripcion" type="String" />
+		<column name="contenido" type="String" />
+		<column name="fechaCreacion" type="Date" />
+
+		<!-- Order -->
+		
+		<order by="asc">
+			<order-column name="titulo"></order-column>
+		</order>
+		
+		<!-- Finder methods -->
+		
+		<finder return-type="Collection" name="Titulo">
+			<finder-column name="titulo"></finder-column>
+		</finder>
+		<finder name="U" return-type="Collection">
+			<finder-column name="userId" />
+		</finder>
+		<finder name="G" return-type="Collection">
+			<finder-column name="groupId" />
+		</finder>
+		<finder name="C" return-type="Collection">
+			<finder-column name="companyId" />
+		</finder>
+		<finder name="U_C" return-type="Collection">
+			<finder-column name="userId" />
+			<finder-column name="companyId" />
+		</finder>
+		<finder name="U_G" return-type="Collection">
+			<finder-column name="userId" />
+			<finder-column name="groupId" />
+		</finder>
+		<finder name="U_C_G" return-type="Collection">
+			<finder-column name="userId" />
+			<finder-column name="groupId" />
+		</finder>
+		
+	</entity>
+</service-builder>
