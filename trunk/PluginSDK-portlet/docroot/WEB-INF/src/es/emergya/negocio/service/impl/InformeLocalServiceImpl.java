@@ -42,7 +42,18 @@ import es.emergya.negocio.service.base.InformeLocalServiceBaseImpl;
  */
 public class InformeLocalServiceImpl extends InformeLocalServiceBaseImpl {
 	
-	
+	/**
+	 * Creates a new informe with the primary key. Adds the informe to the database.
+	 *
+	 * @param titulo
+	 * @param descripcion
+	 * @param contenido
+	 * @param fechaCreacion
+	 * @param userId
+	 * @param companyId
+	 * @param groupId
+	 * @return the new informe
+	 */
 	public Informe createInforme(String titulo, String contenido, String descripcion, Date fechaCreacion, Long userId, Long companyId, Long groupId) throws SystemException {
 		
 		// Pasos 1 y 2: Se obtiene el id unico y se crea el ojeto informe
