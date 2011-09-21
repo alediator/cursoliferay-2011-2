@@ -18,4 +18,12 @@
 
 <portlet:defineObjects />
 
-This is the <b>GestorInformes</b> portlet in View mode.
+<portlet:actionURL var="guardarInforme" name="guardarInforme">
+</portlet:actionURL>
+
+<form action="<%= guardarInforme%>" method="post">
+	<div><label style="padding-right:50">Titulo</label><input type="text" name="titulo" /></div>
+	<div><label style="padding-right:50">Descripcion</label><input type="text" name="descripcion" /></div>
+	<div><label style="padding-right:50">Contenido</label><textarea rows="10" cols="40" name="contenido" ></textarea></div>
+	<input type="submit" value="Guardar Informe" />
+</form>

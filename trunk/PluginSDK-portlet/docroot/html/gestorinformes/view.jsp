@@ -57,3 +57,12 @@
 <h3>No hay informes disponibles</h3>
 
 <% } %>
+
+
+<portlet:renderURL var="newInforme">
+	<portlet:param name="view-jsp" value="/html/gestorinformes/newInforme.jsp"></portlet:param>
+</portlet:renderURL>
+
+<form action="<%= newInforme%>" method="post">
+<input type="submit" value="Crear Informe">
+</form>
