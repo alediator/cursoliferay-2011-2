@@ -14,8 +14,15 @@
 
 package es.emergya.negocio.service.impl;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+import com.liferay.portal.kernel.dao.orm.Criterion;
+import com.liferay.portal.kernel.dao.orm.Disjunction;
+import com.liferay.portal.kernel.dao.orm.DynamicQuery;
+import com.liferay.portal.kernel.dao.orm.DynamicQueryFactoryUtil;
+import com.liferay.portal.kernel.dao.orm.RestrictionsFactoryUtil;
 import com.liferay.portal.kernel.exception.SystemException;
 
 import es.emergya.negocio.model.Informe;
@@ -70,6 +77,48 @@ public class InformeLocalServiceImpl extends InformeLocalServiceBaseImpl {
 		
 		// Paso 4: persist
 		return addInforme(informe);
+	}
+	
+	/**
+	 * 
+	 * 
+	 * @param titulo
+	 * @param userId
+	 * @return
+	 * @throws SystemException
+	 */
+	@SuppressWarnings("unchecked")
+	public List<Informe> getInformeByTitulo_o_UserId(String titulo, Long userId) throws SystemException{
+		
+		// Paso 1: Resultado vacio para evitar devolver
+		List<Informe> resultado = new ArrayList<Informe>();
+		
+		// Paso 2: Creamos la dynamic query
+		// Si fueran sobre el core hay que que utilizar el classloader: DynamicQueryFactoryUtil.forClass(Class<?>, PortalClassLoaderUtil.getClassLoader())
+		DynamicQuery dynamicQuery = DynamicQueryFactoryUtil.forClass(Informe.class);
+	
+		// Paso 3: Se configura la consulta adecuadamente
+		Criterion criterio1 = null;
+		Criterion criterio2 = null;
+		if(titulo != null){
+			criterio1 = RestrictionsFactoryUtil.ilike("titulo", titulo);
+		}
+		if (userId != null){
+			criterio2 = RestrictionsFactoryUtil.eq("userId", userId);
+		}
+		Disjunction disjuntion = RestrictionsFactoryUtil.disjunction();
+		if(criterio1 != null){
+			disjuntion.add(criterio1);
+		}
+		if(criterio2 != null){
+			disjuntion.add(criterio2);
+		}
+		dynamicQuery.add(disjuntion);
+		
+		// Paso 4: Se incluyen los resultados
+		resultado.addAll(dynamicQuery(dynamicQuery));
+		
+		return resultado;
 	}
 	
 }
