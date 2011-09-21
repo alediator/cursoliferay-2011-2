@@ -14,8 +14,46 @@
 */
 --%>
 
+<%@page import="com.liferay.portal.service.UserLocalServiceUtil"%>
+<%@page import="es.emergya.negocio.service.InformeLocalServiceUtil"%>
+<%@page import="es.emergya.negocio.model.Informe"%>
 <%@ taglib uri="http://java.sun.com/portlet_2_0" prefix="portlet" %>
+<%@ taglib uri="http://liferay.com/tld/theme" prefix="theme" %>
 
 <portlet:defineObjects />
+<theme:defineObjects />
 
-This is the <b>GestorInformes</b> portlet in View mode.
+<%
+	int numeroInformes = InformeLocalServiceUtil.getInformesCount();
+	if( numeroInformes > 0){
+%>
+
+<table>
+  <tr>
+    <th>Titulo</th>
+    <th style="padding-left:50;">Descripcion</th>
+    <th style="padding-left:50;">Autor</th>
+  </tr>
+  
+  <%
+	for(Informe informe: InformeLocalServiceUtil.getInformes(0, numeroInformes)){  
+  %>
+  <tr>
+    <td><%= informe.getTitulo()%></td>
+    <td style="padding-left:50;"><%= informe.getDescripcion()%></td>
+    <td style="padding-left:50;"><%= UserLocalServiceUtil.getUserById(informe.getUserId()).getFullName()%></td>
+  </tr>
+  <%
+	}
+  %>
+</table>
+
+<%
+
+	}else{
+
+%>
+
+<h3>No hay informes disponibles</h3>
+
+<% } %>
