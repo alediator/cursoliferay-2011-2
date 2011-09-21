@@ -80,11 +80,11 @@ public class InformeLocalServiceImpl extends InformeLocalServiceBaseImpl {
 	}
 	
 	/**
-	 * 
+	 * Obtiene el listado de informes por titulo o userId
 	 * 
 	 * @param titulo
 	 * @param userId
-	 * @return
+	 * @return list de informes
 	 * @throws SystemException
 	 */
 	@SuppressWarnings("unchecked")
@@ -119,6 +119,44 @@ public class InformeLocalServiceImpl extends InformeLocalServiceBaseImpl {
 		resultado.addAll(dynamicQuery(dynamicQuery));
 		
 		return resultado;
+	}
+	
+	/**
+	 * Obtiene el numero de resultados
+	 * 
+	 * @param titulo
+	 * @param userId
+	 * @return count
+	 * @throws SystemException
+	 */
+	public int getCountInformeByTitulo_o_UserId(String titulo, Long userId) throws SystemException{
+		
+		// Paso 1: Creamos la dynamic query
+		// Si fueran sobre el core hay que que utilizar el 
+		// classloader: 
+		// 		DynamicQueryFactoryUtil.forClass(Class<?>, PortalClassLoaderUtil.getClassLoader())
+		DynamicQuery dynamicQuery = DynamicQueryFactoryUtil.forClass(Informe.class);
+	
+		// Paso 2: Se configura la consulta adecuadamente
+		Criterion criterio1 = null;
+		Criterion criterio2 = null;
+		if(titulo != null){
+			criterio1 = RestrictionsFactoryUtil.ilike("titulo", titulo);
+		}
+		if (userId != null){
+			criterio2 = RestrictionsFactoryUtil.eq("userId", userId);
+		}
+		Disjunction disjuntion = RestrictionsFactoryUtil.disjunction();
+		if(criterio1 != null){
+			disjuntion.add(criterio1);
+		}
+		if(criterio2 != null){
+			disjuntion.add(criterio2);
+		}
+		dynamicQuery.add(disjuntion);
+		
+		// Paso 3: Se obtiene el resultado
+		return (int) dynamicQueryCount(dynamicQuery);
 	}
 	
 }
