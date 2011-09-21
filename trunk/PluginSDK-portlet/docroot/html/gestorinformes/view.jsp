@@ -31,8 +31,8 @@
 <table>
   <tr>
     <th>Titulo</th>
-    <th style="padding-left:50;">Descripcion</th>
-    <th style="padding-left:50;">Autor</th>
+    <th style="padding-left:50px;">Descripcion</th>
+    <th style="padding-left:50px;">Autor</th>
   </tr>
   
   <%
@@ -40,8 +40,8 @@
   %>
   <tr>
     <td><%= informe.getTitulo()%></td>
-    <td style="padding-left:50;"><%= informe.getDescripcion()%></td>
-    <td style="padding-left:50;"><%= UserLocalServiceUtil.getUserById(informe.getUserId()).getFullName()%></td>
+    <td style="padding-left:50px;"><%= informe.getDescripcion()%></td>
+    <td style="padding-left:50px;"><%= UserLocalServiceUtil.getUserById(informe.getUserId()).getFullName()%></td>
   </tr>
   <%
 	}

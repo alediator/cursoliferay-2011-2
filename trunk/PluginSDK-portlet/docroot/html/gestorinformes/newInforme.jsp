@@ -22,8 +22,10 @@
 </portlet:actionURL>
 
 <form action="<%= guardarInforme%>" method="post">
-	<div><label style="padding-right:50">Titulo</label><input type="text" name="titulo" /></div>
-	<div><label style="padding-right:50">Descripcion</label><input type="text" name="descripcion" /></div>
-	<div><label style="padding-right:50">Contenido</label><textarea rows="10" cols="40" name="contenido" ></textarea></div>
-	<input type="submit" value="Guardar Informe" />
+<div style="height:250px">
+	<div><div style="float:left;padding-right:50px;width:100px;"><label>Titulo</label></div><div style="float:right"><input type="text" name="titulo" /></div></div>
+	<div style="clear:both"><div style="float:left;padding-right:50px;width:100px;"><label style="padding-right:50px;width:100px;">Descripcion</label></div><div style="float:right"><input type="text" name="descripcion" /></div></div>
+	<div style="clear:both"><div style="float:left;padding-right:50px;width:100px;"><label style="padding-right:50px;width:100px;">Contenido</label></div><div style="float:right"><textarea rows="10" cols="40" name="contenido" ></textarea></div></div>
+	<div style="clear:both"><input type="submit" value="Guardar Informe" /></div>
+</div>
 </form>
