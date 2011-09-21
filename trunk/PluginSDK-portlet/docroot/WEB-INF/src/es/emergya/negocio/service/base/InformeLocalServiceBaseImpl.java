@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2010 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package es.emergya.negocio.service.base;
 
 import com.liferay.counter.service.CounterLocalService;
@@ -55,382 +41,381 @@ import javax.sql.DataSource;
  * @generated
  */
 public abstract class InformeLocalServiceBaseImpl implements InformeLocalService {
-	/**
-	 * Adds the informe to the database. Also notifies the appropriate model listeners.
-	 *
-	 * @param informe the informe to add
-	 * @return the informe that was added
-	 * @throws SystemException if a system exception occurred
-	 */
-	public Informe addInforme(Informe informe) throws SystemException {
-		informe.setNew(true);
+    @BeanReference(type = InformeLocalService.class)
+    protected InformeLocalService informeLocalService;
+    @BeanReference(type = InformePersistence.class)
+    protected InformePersistence informePersistence;
+    @BeanReference(type = CounterLocalService.class)
+    protected CounterLocalService counterLocalService;
+    @BeanReference(type = ResourceLocalService.class)
+    protected ResourceLocalService resourceLocalService;
+    @BeanReference(type = ResourceService.class)
+    protected ResourceService resourceService;
+    @BeanReference(type = ResourcePersistence.class)
+    protected ResourcePersistence resourcePersistence;
+    @BeanReference(type = UserLocalService.class)
+    protected UserLocalService userLocalService;
+    @BeanReference(type = UserService.class)
+    protected UserService userService;
+    @BeanReference(type = UserPersistence.class)
+    protected UserPersistence userPersistence;
 
-		return informePersistence.update(informe, false);
-	}
+    /**
+     * Adds the informe to the database. Also notifies the appropriate model listeners.
+     *
+     * @param informe the informe to add
+     * @return the informe that was added
+     * @throws SystemException if a system exception occurred
+     */
+    public Informe addInforme(Informe informe) throws SystemException {
+        informe.setNew(true);
 
-	/**
-	 * Creates a new informe with the primary key. Does not add the informe to the database.
-	 *
-	 * @param informeId the primary key for the new informe
-	 * @return the new informe
-	 */
-	public Informe createInforme(long informeId) {
-		return informePersistence.create(informeId);
-	}
+        return informePersistence.update(informe, false);
+    }
 
-	/**
-	 * Deletes the informe with the primary key from the database. Also notifies the appropriate model listeners.
-	 *
-	 * @param informeId the primary key of the informe to delete
-	 * @throws PortalException if a informe with the primary key could not be found
-	 * @throws SystemException if a system exception occurred
-	 */
-	public void deleteInforme(long informeId)
-		throws PortalException, SystemException {
-		informePersistence.remove(informeId);
-	}
+    /**
+     * Creates a new informe with the primary key. Does not add the informe to the database.
+     *
+     * @param informeId the primary key for the new informe
+     * @return the new informe
+     */
+    public Informe createInforme(long informeId) {
+        return informePersistence.create(informeId);
+    }
 
-	/**
-	 * Deletes the informe from the database. Also notifies the appropriate model listeners.
-	 *
-	 * @param informe the informe to delete
-	 * @throws SystemException if a system exception occurred
-	 */
-	public void deleteInforme(Informe informe) throws SystemException {
-		informePersistence.remove(informe);
-	}
+    /**
+     * Deletes the informe with the primary key from the database. Also notifies the appropriate model listeners.
+     *
+     * @param informeId the primary key of the informe to delete
+     * @throws PortalException if a informe with the primary key could not be found
+     * @throws SystemException if a system exception occurred
+     */
+    public void deleteInforme(long informeId)
+        throws PortalException, SystemException {
+        informePersistence.remove(informeId);
+    }
 
-	/**
-	 * Performs a dynamic query on the database and returns the matching rows.
-	 *
-	 * @param dynamicQuery the dynamic query to search with
-	 * @return the matching rows
-	 * @throws SystemException if a system exception occurred
-	 */
-	@SuppressWarnings("rawtypes")
-	public List dynamicQuery(DynamicQuery dynamicQuery)
-		throws SystemException {
-		return informePersistence.findWithDynamicQuery(dynamicQuery);
-	}
+    /**
+     * Deletes the informe from the database. Also notifies the appropriate model listeners.
+     *
+     * @param informe the informe to delete
+     * @throws SystemException if a system exception occurred
+     */
+    public void deleteInforme(Informe informe) throws SystemException {
+        informePersistence.remove(informe);
+    }
 
-	/**
-	 * Performs a dynamic query on the database and returns a range of the matching rows.
-	 *
-	 * <p>
-	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set.
-	 * </p>
-	 *
-	 * @param dynamicQuery the dynamic query to search with
-	 * @param start the lower bound of the range of model instances to return
-	 * @param end the upper bound of the range of model instances to return (not inclusive)
-	 * @return the range of matching rows
-	 * @throws SystemException if a system exception occurred
-	 */
-	@SuppressWarnings("rawtypes")
-	public List dynamicQuery(DynamicQuery dynamicQuery, int start, int end)
-		throws SystemException {
-		return informePersistence.findWithDynamicQuery(dynamicQuery, start, end);
-	}
+    /**
+     * Performs a dynamic query on the database and returns the matching rows.
+     *
+     * @param dynamicQuery the dynamic query to search with
+     * @return the matching rows
+     * @throws SystemException if a system exception occurred
+     */
+    @SuppressWarnings("rawtypes")
+    public List dynamicQuery(DynamicQuery dynamicQuery)
+        throws SystemException {
+        return informePersistence.findWithDynamicQuery(dynamicQuery);
+    }
 
-	/**
-	 * Performs a dynamic query on the database and returns an ordered range of the matching rows.
-	 *
-	 * <p>
-	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set.
-	 * </p>
-	 *
-	 * @param dynamicQuery the dynamic query to search with
-	 * @param start the lower bound of the range of model instances to return
-	 * @param end the upper bound of the range of model instances to return (not inclusive)
-	 * @param orderByComparator the comparator to order the results by
-	 * @return the ordered range of matching rows
-	 * @throws SystemException if a system exception occurred
-	 */
-	@SuppressWarnings("rawtypes")
-	public List dynamicQuery(DynamicQuery dynamicQuery, int start, int end,
-		OrderByComparator orderByComparator) throws SystemException {
-		return informePersistence.findWithDynamicQuery(dynamicQuery, start,
-			end, orderByComparator);
-	}
+    /**
+     * Performs a dynamic query on the database and returns a range of the matching rows.
+     *
+     * <p>
+     * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set.
+     * </p>
+     *
+     * @param dynamicQuery the dynamic query to search with
+     * @param start the lower bound of the range of model instances to return
+     * @param end the upper bound of the range of model instances to return (not inclusive)
+     * @return the range of matching rows
+     * @throws SystemException if a system exception occurred
+     */
+    @SuppressWarnings("rawtypes")
+    public List dynamicQuery(DynamicQuery dynamicQuery, int start, int end)
+        throws SystemException {
+        return informePersistence.findWithDynamicQuery(dynamicQuery, start, end);
+    }
 
-	/**
-	 * Counts the number of rows that match the dynamic query.
-	 *
-	 * @param dynamicQuery the dynamic query to search with
-	 * @return the number of rows that match the dynamic query
-	 * @throws SystemException if a system exception occurred
-	 */
-	public long dynamicQueryCount(DynamicQuery dynamicQuery)
-		throws SystemException {
-		return informePersistence.countWithDynamicQuery(dynamicQuery);
-	}
+    /**
+     * Performs a dynamic query on the database and returns an ordered range of the matching rows.
+     *
+     * <p>
+     * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set.
+     * </p>
+     *
+     * @param dynamicQuery the dynamic query to search with
+     * @param start the lower bound of the range of model instances to return
+     * @param end the upper bound of the range of model instances to return (not inclusive)
+     * @param orderByComparator the comparator to order the results by
+     * @return the ordered range of matching rows
+     * @throws SystemException if a system exception occurred
+     */
+    @SuppressWarnings("rawtypes")
+    public List dynamicQuery(DynamicQuery dynamicQuery, int start, int end,
+        OrderByComparator orderByComparator) throws SystemException {
+        return informePersistence.findWithDynamicQuery(dynamicQuery, start,
+            end, orderByComparator);
+    }
 
-	/**
-	 * Gets the informe with the primary key.
-	 *
-	 * @param informeId the primary key of the informe to get
-	 * @return the informe
-	 * @throws PortalException if a informe with the primary key could not be found
-	 * @throws SystemException if a system exception occurred
-	 */
-	public Informe getInforme(long informeId)
-		throws PortalException, SystemException {
-		return informePersistence.findByPrimaryKey(informeId);
-	}
+    /**
+     * Counts the number of rows that match the dynamic query.
+     *
+     * @param dynamicQuery the dynamic query to search with
+     * @return the number of rows that match the dynamic query
+     * @throws SystemException if a system exception occurred
+     */
+    public long dynamicQueryCount(DynamicQuery dynamicQuery)
+        throws SystemException {
+        return informePersistence.countWithDynamicQuery(dynamicQuery);
+    }
 
-	/**
-	 * Gets a range of all the informes.
-	 *
-	 * <p>
-	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set.
-	 * </p>
-	 *
-	 * @param start the lower bound of the range of informes to return
-	 * @param end the upper bound of the range of informes to return (not inclusive)
-	 * @return the range of informes
-	 * @throws SystemException if a system exception occurred
-	 */
-	public List<Informe> getInformes(int start, int end)
-		throws SystemException {
-		return informePersistence.findAll(start, end);
-	}
+    /**
+     * Gets the informe with the primary key.
+     *
+     * @param informeId the primary key of the informe to get
+     * @return the informe
+     * @throws PortalException if a informe with the primary key could not be found
+     * @throws SystemException if a system exception occurred
+     */
+    public Informe getInforme(long informeId)
+        throws PortalException, SystemException {
+        return informePersistence.findByPrimaryKey(informeId);
+    }
 
-	/**
-	 * Gets the number of informes.
-	 *
-	 * @return the number of informes
-	 * @throws SystemException if a system exception occurred
-	 */
-	public int getInformesCount() throws SystemException {
-		return informePersistence.countAll();
-	}
+    /**
+     * Gets a range of all the informes.
+     *
+     * <p>
+     * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set.
+     * </p>
+     *
+     * @param start the lower bound of the range of informes to return
+     * @param end the upper bound of the range of informes to return (not inclusive)
+     * @return the range of informes
+     * @throws SystemException if a system exception occurred
+     */
+    public List<Informe> getInformes(int start, int end)
+        throws SystemException {
+        return informePersistence.findAll(start, end);
+    }
 
-	/**
-	 * Updates the informe in the database. Also notifies the appropriate model listeners.
-	 *
-	 * @param informe the informe to update
-	 * @return the informe that was updated
-	 * @throws SystemException if a system exception occurred
-	 */
-	public Informe updateInforme(Informe informe) throws SystemException {
-		informe.setNew(false);
+    /**
+     * Gets the number of informes.
+     *
+     * @return the number of informes
+     * @throws SystemException if a system exception occurred
+     */
+    public int getInformesCount() throws SystemException {
+        return informePersistence.countAll();
+    }
 
-		return informePersistence.update(informe, true);
-	}
+    /**
+     * Updates the informe in the database. Also notifies the appropriate model listeners.
+     *
+     * @param informe the informe to update
+     * @return the informe that was updated
+     * @throws SystemException if a system exception occurred
+     */
+    public Informe updateInforme(Informe informe) throws SystemException {
+        informe.setNew(false);
 
-	/**
-	 * Updates the informe in the database. Also notifies the appropriate model listeners.
-	 *
-	 * @param informe the informe to update
-	 * @param merge whether to merge the informe with the current session. See {@link com.liferay.portal.service.persistence.BatchSession#update(com.liferay.portal.kernel.dao.orm.Session, com.liferay.portal.model.BaseModel, boolean)} for an explanation.
-	 * @return the informe that was updated
-	 * @throws SystemException if a system exception occurred
-	 */
-	public Informe updateInforme(Informe informe, boolean merge)
-		throws SystemException {
-		informe.setNew(false);
+        return informePersistence.update(informe, true);
+    }
 
-		return informePersistence.update(informe, merge);
-	}
+    /**
+     * Updates the informe in the database. Also notifies the appropriate model listeners.
+     *
+     * @param informe the informe to update
+     * @param merge whether to merge the informe with the current session. See {@link com.liferay.portal.service.persistence.BatchSession#update(com.liferay.portal.kernel.dao.orm.Session, com.liferay.portal.model.BaseModel, boolean)} for an explanation.
+     * @return the informe that was updated
+     * @throws SystemException if a system exception occurred
+     */
+    public Informe updateInforme(Informe informe, boolean merge)
+        throws SystemException {
+        informe.setNew(false);
 
-	/**
-	 * Gets the informe local service.
-	 *
-	 * @return the informe local service
-	 */
-	public InformeLocalService getInformeLocalService() {
-		return informeLocalService;
-	}
+        return informePersistence.update(informe, merge);
+    }
 
-	/**
-	 * Sets the informe local service.
-	 *
-	 * @param informeLocalService the informe local service
-	 */
-	public void setInformeLocalService(InformeLocalService informeLocalService) {
-		this.informeLocalService = informeLocalService;
-	}
+    /**
+     * Gets the informe local service.
+     *
+     * @return the informe local service
+     */
+    public InformeLocalService getInformeLocalService() {
+        return informeLocalService;
+    }
 
-	/**
-	 * Gets the informe persistence.
-	 *
-	 * @return the informe persistence
-	 */
-	public InformePersistence getInformePersistence() {
-		return informePersistence;
-	}
+    /**
+     * Sets the informe local service.
+     *
+     * @param informeLocalService the informe local service
+     */
+    public void setInformeLocalService(InformeLocalService informeLocalService) {
+        this.informeLocalService = informeLocalService;
+    }
 
-	/**
-	 * Sets the informe persistence.
-	 *
-	 * @param informePersistence the informe persistence
-	 */
-	public void setInformePersistence(InformePersistence informePersistence) {
-		this.informePersistence = informePersistence;
-	}
+    /**
+     * Gets the informe persistence.
+     *
+     * @return the informe persistence
+     */
+    public InformePersistence getInformePersistence() {
+        return informePersistence;
+    }
 
-	/**
-	 * Gets the counter local service.
-	 *
-	 * @return the counter local service
-	 */
-	public CounterLocalService getCounterLocalService() {
-		return counterLocalService;
-	}
+    /**
+     * Sets the informe persistence.
+     *
+     * @param informePersistence the informe persistence
+     */
+    public void setInformePersistence(InformePersistence informePersistence) {
+        this.informePersistence = informePersistence;
+    }
 
-	/**
-	 * Sets the counter local service.
-	 *
-	 * @param counterLocalService the counter local service
-	 */
-	public void setCounterLocalService(CounterLocalService counterLocalService) {
-		this.counterLocalService = counterLocalService;
-	}
+    /**
+     * Gets the counter local service.
+     *
+     * @return the counter local service
+     */
+    public CounterLocalService getCounterLocalService() {
+        return counterLocalService;
+    }
 
-	/**
-	 * Gets the resource local service.
-	 *
-	 * @return the resource local service
-	 */
-	public ResourceLocalService getResourceLocalService() {
-		return resourceLocalService;
-	}
+    /**
+     * Sets the counter local service.
+     *
+     * @param counterLocalService the counter local service
+     */
+    public void setCounterLocalService(CounterLocalService counterLocalService) {
+        this.counterLocalService = counterLocalService;
+    }
 
-	/**
-	 * Sets the resource local service.
-	 *
-	 * @param resourceLocalService the resource local service
-	 */
-	public void setResourceLocalService(
-		ResourceLocalService resourceLocalService) {
-		this.resourceLocalService = resourceLocalService;
-	}
+    /**
+     * Gets the resource local service.
+     *
+     * @return the resource local service
+     */
+    public ResourceLocalService getResourceLocalService() {
+        return resourceLocalService;
+    }
 
-	/**
-	 * Gets the resource remote service.
-	 *
-	 * @return the resource remote service
-	 */
-	public ResourceService getResourceService() {
-		return resourceService;
-	}
+    /**
+     * Sets the resource local service.
+     *
+     * @param resourceLocalService the resource local service
+     */
+    public void setResourceLocalService(
+        ResourceLocalService resourceLocalService) {
+        this.resourceLocalService = resourceLocalService;
+    }
 
-	/**
-	 * Sets the resource remote service.
-	 *
-	 * @param resourceService the resource remote service
-	 */
-	public void setResourceService(ResourceService resourceService) {
-		this.resourceService = resourceService;
-	}
+    /**
+     * Gets the resource remote service.
+     *
+     * @return the resource remote service
+     */
+    public ResourceService getResourceService() {
+        return resourceService;
+    }
 
-	/**
-	 * Gets the resource persistence.
-	 *
-	 * @return the resource persistence
-	 */
-	public ResourcePersistence getResourcePersistence() {
-		return resourcePersistence;
-	}
+    /**
+     * Sets the resource remote service.
+     *
+     * @param resourceService the resource remote service
+     */
+    public void setResourceService(ResourceService resourceService) {
+        this.resourceService = resourceService;
+    }
 
-	/**
-	 * Sets the resource persistence.
-	 *
-	 * @param resourcePersistence the resource persistence
-	 */
-	public void setResourcePersistence(ResourcePersistence resourcePersistence) {
-		this.resourcePersistence = resourcePersistence;
-	}
+    /**
+     * Gets the resource persistence.
+     *
+     * @return the resource persistence
+     */
+    public ResourcePersistence getResourcePersistence() {
+        return resourcePersistence;
+    }
 
-	/**
-	 * Gets the user local service.
-	 *
-	 * @return the user local service
-	 */
-	public UserLocalService getUserLocalService() {
-		return userLocalService;
-	}
+    /**
+     * Sets the resource persistence.
+     *
+     * @param resourcePersistence the resource persistence
+     */
+    public void setResourcePersistence(ResourcePersistence resourcePersistence) {
+        this.resourcePersistence = resourcePersistence;
+    }
 
-	/**
-	 * Sets the user local service.
-	 *
-	 * @param userLocalService the user local service
-	 */
-	public void setUserLocalService(UserLocalService userLocalService) {
-		this.userLocalService = userLocalService;
-	}
+    /**
+     * Gets the user local service.
+     *
+     * @return the user local service
+     */
+    public UserLocalService getUserLocalService() {
+        return userLocalService;
+    }
 
-	/**
-	 * Gets the user remote service.
-	 *
-	 * @return the user remote service
-	 */
-	public UserService getUserService() {
-		return userService;
-	}
+    /**
+     * Sets the user local service.
+     *
+     * @param userLocalService the user local service
+     */
+    public void setUserLocalService(UserLocalService userLocalService) {
+        this.userLocalService = userLocalService;
+    }
 
-	/**
-	 * Sets the user remote service.
-	 *
-	 * @param userService the user remote service
-	 */
-	public void setUserService(UserService userService) {
-		this.userService = userService;
-	}
+    /**
+     * Gets the user remote service.
+     *
+     * @return the user remote service
+     */
+    public UserService getUserService() {
+        return userService;
+    }
 
-	/**
-	 * Gets the user persistence.
-	 *
-	 * @return the user persistence
-	 */
-	public UserPersistence getUserPersistence() {
-		return userPersistence;
-	}
+    /**
+     * Sets the user remote service.
+     *
+     * @param userService the user remote service
+     */
+    public void setUserService(UserService userService) {
+        this.userService = userService;
+    }
 
-	/**
-	 * Sets the user persistence.
-	 *
-	 * @param userPersistence the user persistence
-	 */
-	public void setUserPersistence(UserPersistence userPersistence) {
-		this.userPersistence = userPersistence;
-	}
+    /**
+     * Gets the user persistence.
+     *
+     * @return the user persistence
+     */
+    public UserPersistence getUserPersistence() {
+        return userPersistence;
+    }
 
-	/**
-	 * Performs an SQL query.
-	 *
-	 * @param sql the sql query to perform
-	 */
-	protected void runSQL(String sql) throws SystemException {
-		try {
-			DataSource dataSource = informePersistence.getDataSource();
+    /**
+     * Sets the user persistence.
+     *
+     * @param userPersistence the user persistence
+     */
+    public void setUserPersistence(UserPersistence userPersistence) {
+        this.userPersistence = userPersistence;
+    }
 
-			SqlUpdate sqlUpdate = SqlUpdateFactoryUtil.getSqlUpdate(dataSource,
-					sql, new int[0]);
+    /**
+     * Performs an SQL query.
+     *
+     * @param sql the sql query to perform
+     */
+    protected void runSQL(String sql) throws SystemException {
+        try {
+            DataSource dataSource = informePersistence.getDataSource();
 
-			sqlUpdate.update();
-		}
-		catch (Exception e) {
-			throw new SystemException(e);
-		}
-	}
+            SqlUpdate sqlUpdate = SqlUpdateFactoryUtil.getSqlUpdate(dataSource,
+                    sql, new int[0]);
 
-	@BeanReference(type = InformeLocalService.class)
-	protected InformeLocalService informeLocalService;
-	@BeanReference(type = InformePersistence.class)
-	protected InformePersistence informePersistence;
-	@BeanReference(type = CounterLocalService.class)
-	protected CounterLocalService counterLocalService;
-	@BeanReference(type = ResourceLocalService.class)
-	protected ResourceLocalService resourceLocalService;
-	@BeanReference(type = ResourceService.class)
-	protected ResourceService resourceService;
-	@BeanReference(type = ResourcePersistence.class)
-	protected ResourcePersistence resourcePersistence;
-	@BeanReference(type = UserLocalService.class)
-	protected UserLocalService userLocalService;
-	@BeanReference(type = UserService.class)
-	protected UserService userService;
-	@BeanReference(type = UserPersistence.class)
-	protected UserPersistence userPersistence;
+            sqlUpdate.update();
+        } catch (Exception e) {
+            throw new SystemException(e);
+        }
+    }
 }

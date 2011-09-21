@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2010 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package es.emergya.negocio.model;
 
 /**
@@ -24,155 +10,155 @@ package es.emergya.negocio.model;
  * @generated
  */
 public class InformeWrapper implements Informe {
-	public InformeWrapper(Informe informe) {
-		_informe = informe;
-	}
+    private Informe _informe;
 
-	public long getPrimaryKey() {
-		return _informe.getPrimaryKey();
-	}
+    public InformeWrapper(Informe informe) {
+        _informe = informe;
+    }
 
-	public void setPrimaryKey(long pk) {
-		_informe.setPrimaryKey(pk);
-	}
+    public long getPrimaryKey() {
+        return _informe.getPrimaryKey();
+    }
 
-	public long getInformeId() {
-		return _informe.getInformeId();
-	}
+    public void setPrimaryKey(long pk) {
+        _informe.setPrimaryKey(pk);
+    }
 
-	public void setInformeId(long informeId) {
-		_informe.setInformeId(informeId);
-	}
+    public long getInformeId() {
+        return _informe.getInformeId();
+    }
 
-	public long getCompanyId() {
-		return _informe.getCompanyId();
-	}
+    public void setInformeId(long informeId) {
+        _informe.setInformeId(informeId);
+    }
 
-	public void setCompanyId(long companyId) {
-		_informe.setCompanyId(companyId);
-	}
+    public long getCompanyId() {
+        return _informe.getCompanyId();
+    }
 
-	public long getUserId() {
-		return _informe.getUserId();
-	}
+    public void setCompanyId(long companyId) {
+        _informe.setCompanyId(companyId);
+    }
 
-	public void setUserId(long userId) {
-		_informe.setUserId(userId);
-	}
+    public long getUserId() {
+        return _informe.getUserId();
+    }
 
-	public java.lang.String getUserUuid()
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return _informe.getUserUuid();
-	}
+    public void setUserId(long userId) {
+        _informe.setUserId(userId);
+    }
 
-	public void setUserUuid(java.lang.String userUuid) {
-		_informe.setUserUuid(userUuid);
-	}
+    public java.lang.String getUserUuid()
+        throws com.liferay.portal.kernel.exception.SystemException {
+        return _informe.getUserUuid();
+    }
 
-	public long getGroupId() {
-		return _informe.getGroupId();
-	}
+    public void setUserUuid(java.lang.String userUuid) {
+        _informe.setUserUuid(userUuid);
+    }
 
-	public void setGroupId(long groupId) {
-		_informe.setGroupId(groupId);
-	}
+    public long getGroupId() {
+        return _informe.getGroupId();
+    }
 
-	public java.lang.String getTitulo() {
-		return _informe.getTitulo();
-	}
+    public void setGroupId(long groupId) {
+        _informe.setGroupId(groupId);
+    }
 
-	public void setTitulo(java.lang.String titulo) {
-		_informe.setTitulo(titulo);
-	}
+    public java.lang.String getTitulo() {
+        return _informe.getTitulo();
+    }
 
-	public java.lang.String getDescripcion() {
-		return _informe.getDescripcion();
-	}
+    public void setTitulo(java.lang.String titulo) {
+        _informe.setTitulo(titulo);
+    }
 
-	public void setDescripcion(java.lang.String descripcion) {
-		_informe.setDescripcion(descripcion);
-	}
+    public java.lang.String getDescripcion() {
+        return _informe.getDescripcion();
+    }
 
-	public java.lang.String getContenido() {
-		return _informe.getContenido();
-	}
+    public void setDescripcion(java.lang.String descripcion) {
+        _informe.setDescripcion(descripcion);
+    }
 
-	public void setContenido(java.lang.String contenido) {
-		_informe.setContenido(contenido);
-	}
+    public java.lang.String getContenido() {
+        return _informe.getContenido();
+    }
 
-	public java.util.Date getFechaCreacion() {
-		return _informe.getFechaCreacion();
-	}
+    public void setContenido(java.lang.String contenido) {
+        _informe.setContenido(contenido);
+    }
 
-	public void setFechaCreacion(java.util.Date fechaCreacion) {
-		_informe.setFechaCreacion(fechaCreacion);
-	}
+    public java.util.Date getFechaCreacion() {
+        return _informe.getFechaCreacion();
+    }
 
-	public es.emergya.negocio.model.Informe toEscapedModel() {
-		return _informe.toEscapedModel();
-	}
+    public void setFechaCreacion(java.util.Date fechaCreacion) {
+        _informe.setFechaCreacion(fechaCreacion);
+    }
 
-	public boolean isNew() {
-		return _informe.isNew();
-	}
+    public es.emergya.negocio.model.Informe toEscapedModel() {
+        return _informe.toEscapedModel();
+    }
 
-	public void setNew(boolean n) {
-		_informe.setNew(n);
-	}
+    public boolean isNew() {
+        return _informe.isNew();
+    }
 
-	public boolean isCachedModel() {
-		return _informe.isCachedModel();
-	}
+    public void setNew(boolean n) {
+        _informe.setNew(n);
+    }
 
-	public void setCachedModel(boolean cachedModel) {
-		_informe.setCachedModel(cachedModel);
-	}
+    public boolean isCachedModel() {
+        return _informe.isCachedModel();
+    }
 
-	public boolean isEscapedModel() {
-		return _informe.isEscapedModel();
-	}
+    public void setCachedModel(boolean cachedModel) {
+        _informe.setCachedModel(cachedModel);
+    }
 
-	public void setEscapedModel(boolean escapedModel) {
-		_informe.setEscapedModel(escapedModel);
-	}
+    public boolean isEscapedModel() {
+        return _informe.isEscapedModel();
+    }
 
-	public java.io.Serializable getPrimaryKeyObj() {
-		return _informe.getPrimaryKeyObj();
-	}
+    public void setEscapedModel(boolean escapedModel) {
+        _informe.setEscapedModel(escapedModel);
+    }
 
-	public com.liferay.portlet.expando.model.ExpandoBridge getExpandoBridge() {
-		return _informe.getExpandoBridge();
-	}
+    public java.io.Serializable getPrimaryKeyObj() {
+        return _informe.getPrimaryKeyObj();
+    }
 
-	public void setExpandoBridgeAttributes(
-		com.liferay.portal.service.ServiceContext serviceContext) {
-		_informe.setExpandoBridgeAttributes(serviceContext);
-	}
+    public com.liferay.portlet.expando.model.ExpandoBridge getExpandoBridge() {
+        return _informe.getExpandoBridge();
+    }
 
-	public java.lang.Object clone() {
-		return _informe.clone();
-	}
+    public void setExpandoBridgeAttributes(
+        com.liferay.portal.service.ServiceContext serviceContext) {
+        _informe.setExpandoBridgeAttributes(serviceContext);
+    }
 
-	public int compareTo(es.emergya.negocio.model.Informe informe) {
-		return _informe.compareTo(informe);
-	}
+    public java.lang.Object clone() {
+        return _informe.clone();
+    }
 
-	public int hashCode() {
-		return _informe.hashCode();
-	}
+    public int compareTo(es.emergya.negocio.model.Informe informe) {
+        return _informe.compareTo(informe);
+    }
 
-	public java.lang.String toString() {
-		return _informe.toString();
-	}
+    public int hashCode() {
+        return _informe.hashCode();
+    }
 
-	public java.lang.String toXmlString() {
-		return _informe.toXmlString();
-	}
+    public java.lang.String toString() {
+        return _informe.toString();
+    }
 
-	public Informe getWrappedInforme() {
-		return _informe;
-	}
+    public java.lang.String toXmlString() {
+        return _informe.toXmlString();
+    }
 
-	private Informe _informe;
+    public Informe getWrappedInforme() {
+        return _informe;
+    }
 }

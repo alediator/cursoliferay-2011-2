@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2010 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package es.emergya.negocio.model;
 
 import com.liferay.portal.kernel.bean.AutoEscapeBeanHandler;
@@ -26,238 +12,233 @@ import java.lang.reflect.Proxy;
 
 import java.util.Date;
 
-/**
- * @author adiaz
- */
+
 public class InformeClp extends BaseModelImpl<Informe> implements Informe {
-	public InformeClp() {
-	}
+    private long _informeId;
+    private long _companyId;
+    private long _userId;
+    private String _userUuid;
+    private long _groupId;
+    private String _titulo;
+    private String _descripcion;
+    private String _contenido;
+    private Date _fechaCreacion;
 
-	public long getPrimaryKey() {
-		return _informeId;
-	}
+    public InformeClp() {
+    }
 
-	public void setPrimaryKey(long pk) {
-		setInformeId(pk);
-	}
+    public long getPrimaryKey() {
+        return _informeId;
+    }
 
-	public Serializable getPrimaryKeyObj() {
-		return new Long(_informeId);
-	}
+    public void setPrimaryKey(long pk) {
+        setInformeId(pk);
+    }
 
-	public long getInformeId() {
-		return _informeId;
-	}
+    public Serializable getPrimaryKeyObj() {
+        return new Long(_informeId);
+    }
 
-	public void setInformeId(long informeId) {
-		_informeId = informeId;
-	}
+    public long getInformeId() {
+        return _informeId;
+    }
 
-	public long getCompanyId() {
-		return _companyId;
-	}
+    public void setInformeId(long informeId) {
+        _informeId = informeId;
+    }
 
-	public void setCompanyId(long companyId) {
-		_companyId = companyId;
-	}
+    public long getCompanyId() {
+        return _companyId;
+    }
 
-	public long getUserId() {
-		return _userId;
-	}
+    public void setCompanyId(long companyId) {
+        _companyId = companyId;
+    }
 
-	public void setUserId(long userId) {
-		_userId = userId;
-	}
+    public long getUserId() {
+        return _userId;
+    }
 
-	public String getUserUuid() throws SystemException {
-		return PortalUtil.getUserValue(getUserId(), "uuid", _userUuid);
-	}
+    public void setUserId(long userId) {
+        _userId = userId;
+    }
 
-	public void setUserUuid(String userUuid) {
-		_userUuid = userUuid;
-	}
+    public String getUserUuid() throws SystemException {
+        return PortalUtil.getUserValue(getUserId(), "uuid", _userUuid);
+    }
 
-	public long getGroupId() {
-		return _groupId;
-	}
+    public void setUserUuid(String userUuid) {
+        _userUuid = userUuid;
+    }
 
-	public void setGroupId(long groupId) {
-		_groupId = groupId;
-	}
+    public long getGroupId() {
+        return _groupId;
+    }
 
-	public String getTitulo() {
-		return _titulo;
-	}
+    public void setGroupId(long groupId) {
+        _groupId = groupId;
+    }
 
-	public void setTitulo(String titulo) {
-		_titulo = titulo;
-	}
+    public String getTitulo() {
+        return _titulo;
+    }
 
-	public String getDescripcion() {
-		return _descripcion;
-	}
+    public void setTitulo(String titulo) {
+        _titulo = titulo;
+    }
 
-	public void setDescripcion(String descripcion) {
-		_descripcion = descripcion;
-	}
+    public String getDescripcion() {
+        return _descripcion;
+    }
 
-	public String getContenido() {
-		return _contenido;
-	}
+    public void setDescripcion(String descripcion) {
+        _descripcion = descripcion;
+    }
 
-	public void setContenido(String contenido) {
-		_contenido = contenido;
-	}
+    public String getContenido() {
+        return _contenido;
+    }
 
-	public Date getFechaCreacion() {
-		return _fechaCreacion;
-	}
+    public void setContenido(String contenido) {
+        _contenido = contenido;
+    }
 
-	public void setFechaCreacion(Date fechaCreacion) {
-		_fechaCreacion = fechaCreacion;
-	}
+    public Date getFechaCreacion() {
+        return _fechaCreacion;
+    }
 
-	public Informe toEscapedModel() {
-		if (isEscapedModel()) {
-			return this;
-		}
-		else {
-			return (Informe)Proxy.newProxyInstance(Informe.class.getClassLoader(),
-				new Class[] { Informe.class }, new AutoEscapeBeanHandler(this));
-		}
-	}
+    public void setFechaCreacion(Date fechaCreacion) {
+        _fechaCreacion = fechaCreacion;
+    }
 
-	public Object clone() {
-		InformeClp clone = new InformeClp();
+    public Informe toEscapedModel() {
+        if (isEscapedModel()) {
+            return this;
+        } else {
+            return (Informe) Proxy.newProxyInstance(Informe.class.getClassLoader(),
+                new Class[] { Informe.class }, new AutoEscapeBeanHandler(this));
+        }
+    }
 
-		clone.setInformeId(getInformeId());
-		clone.setCompanyId(getCompanyId());
-		clone.setUserId(getUserId());
-		clone.setGroupId(getGroupId());
-		clone.setTitulo(getTitulo());
-		clone.setDescripcion(getDescripcion());
-		clone.setContenido(getContenido());
-		clone.setFechaCreacion(getFechaCreacion());
+    public Object clone() {
+        InformeClp clone = new InformeClp();
 
-		return clone;
-	}
+        clone.setInformeId(getInformeId());
+        clone.setCompanyId(getCompanyId());
+        clone.setUserId(getUserId());
+        clone.setGroupId(getGroupId());
+        clone.setTitulo(getTitulo());
+        clone.setDescripcion(getDescripcion());
+        clone.setContenido(getContenido());
+        clone.setFechaCreacion(getFechaCreacion());
 
-	public int compareTo(Informe informe) {
-		int value = 0;
+        return clone;
+    }
 
-		value = getTitulo().compareTo(informe.getTitulo());
+    public int compareTo(Informe informe) {
+        int value = 0;
 
-		if (value != 0) {
-			return value;
-		}
+        value = getTitulo().compareTo(informe.getTitulo());
 
-		return 0;
-	}
+        if (value != 0) {
+            return value;
+        }
 
-	public boolean equals(Object obj) {
-		if (obj == null) {
-			return false;
-		}
+        return 0;
+    }
 
-		InformeClp informe = null;
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
 
-		try {
-			informe = (InformeClp)obj;
-		}
-		catch (ClassCastException cce) {
-			return false;
-		}
+        InformeClp informe = null;
 
-		long pk = informe.getPrimaryKey();
+        try {
+            informe = (InformeClp) obj;
+        } catch (ClassCastException cce) {
+            return false;
+        }
 
-		if (getPrimaryKey() == pk) {
-			return true;
-		}
-		else {
-			return false;
-		}
-	}
+        long pk = informe.getPrimaryKey();
 
-	public int hashCode() {
-		return (int)getPrimaryKey();
-	}
+        if (getPrimaryKey() == pk) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-	public String toString() {
-		StringBundler sb = new StringBundler(17);
+    public int hashCode() {
+        return (int) getPrimaryKey();
+    }
 
-		sb.append("{informeId=");
-		sb.append(getInformeId());
-		sb.append(", companyId=");
-		sb.append(getCompanyId());
-		sb.append(", userId=");
-		sb.append(getUserId());
-		sb.append(", groupId=");
-		sb.append(getGroupId());
-		sb.append(", titulo=");
-		sb.append(getTitulo());
-		sb.append(", descripcion=");
-		sb.append(getDescripcion());
-		sb.append(", contenido=");
-		sb.append(getContenido());
-		sb.append(", fechaCreacion=");
-		sb.append(getFechaCreacion());
-		sb.append("}");
+    public String toString() {
+        StringBundler sb = new StringBundler(17);
 
-		return sb.toString();
-	}
+        sb.append("{informeId=");
+        sb.append(getInformeId());
+        sb.append(", companyId=");
+        sb.append(getCompanyId());
+        sb.append(", userId=");
+        sb.append(getUserId());
+        sb.append(", groupId=");
+        sb.append(getGroupId());
+        sb.append(", titulo=");
+        sb.append(getTitulo());
+        sb.append(", descripcion=");
+        sb.append(getDescripcion());
+        sb.append(", contenido=");
+        sb.append(getContenido());
+        sb.append(", fechaCreacion=");
+        sb.append(getFechaCreacion());
+        sb.append("}");
 
-	public String toXmlString() {
-		StringBundler sb = new StringBundler(28);
+        return sb.toString();
+    }
 
-		sb.append("<model><model-name>");
-		sb.append("es.emergya.negocio.model.Informe");
-		sb.append("</model-name>");
+    public String toXmlString() {
+        StringBundler sb = new StringBundler(28);
 
-		sb.append(
-			"<column><column-name>informeId</column-name><column-value><![CDATA[");
-		sb.append(getInformeId());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>companyId</column-name><column-value><![CDATA[");
-		sb.append(getCompanyId());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>userId</column-name><column-value><![CDATA[");
-		sb.append(getUserId());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>groupId</column-name><column-value><![CDATA[");
-		sb.append(getGroupId());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>titulo</column-name><column-value><![CDATA[");
-		sb.append(getTitulo());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>descripcion</column-name><column-value><![CDATA[");
-		sb.append(getDescripcion());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>contenido</column-name><column-value><![CDATA[");
-		sb.append(getContenido());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>fechaCreacion</column-name><column-value><![CDATA[");
-		sb.append(getFechaCreacion());
-		sb.append("]]></column-value></column>");
+        sb.append("<model><model-name>");
+        sb.append("es.emergya.negocio.model.Informe");
+        sb.append("</model-name>");
 
-		sb.append("</model>");
+        sb.append(
+            "<column><column-name>informeId</column-name><column-value><![CDATA[");
+        sb.append(getInformeId());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>companyId</column-name><column-value><![CDATA[");
+        sb.append(getCompanyId());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>userId</column-name><column-value><![CDATA[");
+        sb.append(getUserId());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>groupId</column-name><column-value><![CDATA[");
+        sb.append(getGroupId());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>titulo</column-name><column-value><![CDATA[");
+        sb.append(getTitulo());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>descripcion</column-name><column-value><![CDATA[");
+        sb.append(getDescripcion());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>contenido</column-name><column-value><![CDATA[");
+        sb.append(getContenido());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>fechaCreacion</column-name><column-value><![CDATA[");
+        sb.append(getFechaCreacion());
+        sb.append("]]></column-value></column>");
 
-		return sb.toString();
-	}
+        sb.append("</model>");
 
-	private long _informeId;
-	private long _companyId;
-	private long _userId;
-	private String _userUuid;
-	private long _groupId;
-	private String _titulo;
-	private String _descripcion;
-	private String _contenido;
-	private Date _fechaCreacion;
+        return sb.toString();
+    }
 }

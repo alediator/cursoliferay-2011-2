@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2010 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package es.emergya.negocio.model;
 
 import com.liferay.portal.kernel.annotation.AutoEscape;
@@ -43,183 +29,183 @@ import java.util.Date;
  * @generated
  */
 public interface InformeModel extends BaseModel<Informe> {
-	/**
-	 * Gets the primary key of this informe.
-	 *
-	 * @return the primary key of this informe
-	 */
-	public long getPrimaryKey();
+    /**
+     * Gets the primary key of this informe.
+     *
+     * @return the primary key of this informe
+     */
+    public long getPrimaryKey();
 
-	/**
-	 * Sets the primary key of this informe
-	 *
-	 * @param pk the primary key of this informe
-	 */
-	public void setPrimaryKey(long pk);
+    /**
+     * Sets the primary key of this informe
+     *
+     * @param pk the primary key of this informe
+     */
+    public void setPrimaryKey(long pk);
 
-	/**
-	 * Gets the informe id of this informe.
-	 *
-	 * @return the informe id of this informe
-	 */
-	public long getInformeId();
+    /**
+     * Gets the informe id of this informe.
+     *
+     * @return the informe id of this informe
+     */
+    public long getInformeId();
 
-	/**
-	 * Sets the informe id of this informe.
-	 *
-	 * @param informeId the informe id of this informe
-	 */
-	public void setInformeId(long informeId);
+    /**
+     * Sets the informe id of this informe.
+     *
+     * @param informeId the informe id of this informe
+     */
+    public void setInformeId(long informeId);
 
-	/**
-	 * Gets the company id of this informe.
-	 *
-	 * @return the company id of this informe
-	 */
-	public long getCompanyId();
+    /**
+     * Gets the company id of this informe.
+     *
+     * @return the company id of this informe
+     */
+    public long getCompanyId();
 
-	/**
-	 * Sets the company id of this informe.
-	 *
-	 * @param companyId the company id of this informe
-	 */
-	public void setCompanyId(long companyId);
+    /**
+     * Sets the company id of this informe.
+     *
+     * @param companyId the company id of this informe
+     */
+    public void setCompanyId(long companyId);
 
-	/**
-	 * Gets the user id of this informe.
-	 *
-	 * @return the user id of this informe
-	 */
-	public long getUserId();
+    /**
+     * Gets the user id of this informe.
+     *
+     * @return the user id of this informe
+     */
+    public long getUserId();
 
-	/**
-	 * Sets the user id of this informe.
-	 *
-	 * @param userId the user id of this informe
-	 */
-	public void setUserId(long userId);
+    /**
+     * Sets the user id of this informe.
+     *
+     * @param userId the user id of this informe
+     */
+    public void setUserId(long userId);
 
-	/**
-	 * Gets the user uuid of this informe.
-	 *
-	 * @return the user uuid of this informe
-	 * @throws SystemException if a system exception occurred
-	 */
-	public String getUserUuid() throws SystemException;
+    /**
+     * Gets the user uuid of this informe.
+     *
+     * @return the user uuid of this informe
+     * @throws SystemException if a system exception occurred
+     */
+    public String getUserUuid() throws SystemException;
 
-	/**
-	 * Sets the user uuid of this informe.
-	 *
-	 * @param userUuid the user uuid of this informe
-	 */
-	public void setUserUuid(String userUuid);
+    /**
+     * Sets the user uuid of this informe.
+     *
+     * @param userUuid the user uuid of this informe
+     */
+    public void setUserUuid(String userUuid);
 
-	/**
-	 * Gets the group id of this informe.
-	 *
-	 * @return the group id of this informe
-	 */
-	public long getGroupId();
+    /**
+     * Gets the group id of this informe.
+     *
+     * @return the group id of this informe
+     */
+    public long getGroupId();
 
-	/**
-	 * Sets the group id of this informe.
-	 *
-	 * @param groupId the group id of this informe
-	 */
-	public void setGroupId(long groupId);
+    /**
+     * Sets the group id of this informe.
+     *
+     * @param groupId the group id of this informe
+     */
+    public void setGroupId(long groupId);
 
-	/**
-	 * Gets the titulo of this informe.
-	 *
-	 * @return the titulo of this informe
-	 */
-	@AutoEscape
-	public String getTitulo();
+    /**
+     * Gets the titulo of this informe.
+     *
+     * @return the titulo of this informe
+     */
+    @AutoEscape
+    public String getTitulo();
 
-	/**
-	 * Sets the titulo of this informe.
-	 *
-	 * @param titulo the titulo of this informe
-	 */
-	public void setTitulo(String titulo);
+    /**
+     * Sets the titulo of this informe.
+     *
+     * @param titulo the titulo of this informe
+     */
+    public void setTitulo(String titulo);
 
-	/**
-	 * Gets the descripcion of this informe.
-	 *
-	 * @return the descripcion of this informe
-	 */
-	@AutoEscape
-	public String getDescripcion();
+    /**
+     * Gets the descripcion of this informe.
+     *
+     * @return the descripcion of this informe
+     */
+    @AutoEscape
+    public String getDescripcion();
 
-	/**
-	 * Sets the descripcion of this informe.
-	 *
-	 * @param descripcion the descripcion of this informe
-	 */
-	public void setDescripcion(String descripcion);
+    /**
+     * Sets the descripcion of this informe.
+     *
+     * @param descripcion the descripcion of this informe
+     */
+    public void setDescripcion(String descripcion);
 
-	/**
-	 * Gets the contenido of this informe.
-	 *
-	 * @return the contenido of this informe
-	 */
-	@AutoEscape
-	public String getContenido();
+    /**
+     * Gets the contenido of this informe.
+     *
+     * @return the contenido of this informe
+     */
+    @AutoEscape
+    public String getContenido();
 
-	/**
-	 * Sets the contenido of this informe.
-	 *
-	 * @param contenido the contenido of this informe
-	 */
-	public void setContenido(String contenido);
+    /**
+     * Sets the contenido of this informe.
+     *
+     * @param contenido the contenido of this informe
+     */
+    public void setContenido(String contenido);
 
-	/**
-	 * Gets the fecha creacion of this informe.
-	 *
-	 * @return the fecha creacion of this informe
-	 */
-	public Date getFechaCreacion();
+    /**
+     * Gets the fecha creacion of this informe.
+     *
+     * @return the fecha creacion of this informe
+     */
+    public Date getFechaCreacion();
 
-	/**
-	 * Sets the fecha creacion of this informe.
-	 *
-	 * @param fechaCreacion the fecha creacion of this informe
-	 */
-	public void setFechaCreacion(Date fechaCreacion);
+    /**
+     * Sets the fecha creacion of this informe.
+     *
+     * @param fechaCreacion the fecha creacion of this informe
+     */
+    public void setFechaCreacion(Date fechaCreacion);
 
-	/**
-	 * Gets a copy of this informe as an escaped model instance by wrapping it with an {@link com.liferay.portal.kernel.bean.AutoEscapeBeanHandler}.
-	 *
-	 * @return the escaped model instance
-	 * @see com.liferay.portal.kernel.bean.AutoEscapeBeanHandler
-	 */
-	public Informe toEscapedModel();
+    /**
+     * Gets a copy of this informe as an escaped model instance by wrapping it with an {@link com.liferay.portal.kernel.bean.AutoEscapeBeanHandler}.
+     *
+     * @return the escaped model instance
+     * @see com.liferay.portal.kernel.bean.AutoEscapeBeanHandler
+     */
+    public Informe toEscapedModel();
 
-	public boolean isNew();
+    public boolean isNew();
 
-	public void setNew(boolean n);
+    public void setNew(boolean n);
 
-	public boolean isCachedModel();
+    public boolean isCachedModel();
 
-	public void setCachedModel(boolean cachedModel);
+    public void setCachedModel(boolean cachedModel);
 
-	public boolean isEscapedModel();
+    public boolean isEscapedModel();
 
-	public void setEscapedModel(boolean escapedModel);
+    public void setEscapedModel(boolean escapedModel);
 
-	public Serializable getPrimaryKeyObj();
+    public Serializable getPrimaryKeyObj();
 
-	public ExpandoBridge getExpandoBridge();
+    public ExpandoBridge getExpandoBridge();
 
-	public void setExpandoBridgeAttributes(ServiceContext serviceContext);
+    public void setExpandoBridgeAttributes(ServiceContext serviceContext);
 
-	public Object clone();
+    public Object clone();
 
-	public int compareTo(Informe informe);
+    public int compareTo(Informe informe);
 
-	public int hashCode();
+    public int hashCode();
 
-	public String toString();
+    public String toString();
 
-	public String toXmlString();
+    public String toXmlString();
 }
