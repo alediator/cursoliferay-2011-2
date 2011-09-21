@@ -14,6 +14,11 @@
 
 package es.emergya.negocio.service.impl;
 
+import java.util.Date;
+
+import com.liferay.portal.kernel.exception.SystemException;
+
+import es.emergya.negocio.model.Informe;
 import es.emergya.negocio.service.base.InformeLocalServiceBaseImpl;
 
 /**
@@ -36,4 +41,24 @@ import es.emergya.negocio.service.base.InformeLocalServiceBaseImpl;
  * @see es.emergya.negocio.service.InformeLocalServiceUtil
  */
 public class InformeLocalServiceImpl extends InformeLocalServiceBaseImpl {
+	
+	
+	public Informe createInforme(String titulo, String contenido, String descripcion, Date fechaCreacion, Long userId, Long companyId, Long groupId) throws SystemException {
+		
+		// Pasos 1 y 2: Se obtiene el id unico y se crea el ojeto informe
+		Informe informe = super.createInforme(counterLocalService.increment());
+		
+		// Paso 3: Paso de propiedades 
+		informe.setTitulo(titulo);
+		informe.setDescripcion(descripcion);
+		informe.setContenido(contenido);
+		informe.setFechaCreacion(fechaCreacion);
+		informe.setCompanyId(companyId);
+		informe.setUserId(userId);
+		informe.setGroupId(groupId);
+		
+		// Paso 4: persist
+		return addInforme(informe);
+	}
+	
 }
