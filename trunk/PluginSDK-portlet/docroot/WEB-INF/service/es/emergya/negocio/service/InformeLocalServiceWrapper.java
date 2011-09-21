@@ -225,6 +225,50 @@ public class InformeLocalServiceWrapper implements InformeLocalService {
             descripcion, fechaCreacion, userId, companyId, groupId);
     }
 
+    /**
+    * Obtiene el listado de informes por titulo o userId
+    *
+    * @param titulo
+    * @param userId
+    * @return list de informes
+    * @throws SystemException
+    */
+    public java.util.List<es.emergya.negocio.model.Informe> getInformeByTitulo_o_UserId(
+        java.lang.String titulo, java.lang.Long userId)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        return _informeLocalService.getInformeByTitulo_o_UserId(titulo, userId);
+    }
+
+    /**
+    * Obtiene el numero de resultados
+    *
+    * @param titulo
+    * @param userId
+    * @return count
+    * @throws SystemException
+    */
+    public int getCountInformeByTitulo_o_UserId(java.lang.String titulo,
+        java.lang.Long userId)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        return _informeLocalService.getCountInformeByTitulo_o_UserId(titulo,
+            userId);
+    }
+
+    /**
+    * Obtiene el listado de informes por titulo o userId ordenado por titulo asc
+    *
+    * @param titulo
+    * @param userId
+    * @return list de informes
+    * @throws SystemException
+    */
+    public java.util.List<es.emergya.negocio.model.Informe> getInformeByTitulo_o_UserId_order(
+        java.lang.String titulo, java.lang.Long userId)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        return _informeLocalService.getInformeByTitulo_o_UserId_order(titulo,
+            userId);
+    }
+
     public InformeLocalService getWrappedInformeLocalService() {
         return _informeLocalService;
     }

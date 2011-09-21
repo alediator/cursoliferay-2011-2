@@ -43,6 +43,15 @@ public class InformeLocalServiceClp implements InformeLocalService {
             "createInforme", java.lang.String.class, java.lang.String.class,
             java.lang.String.class, java.util.Date.class, java.lang.Long.class,
             java.lang.Long.class, java.lang.Long.class);
+    private MethodKey _getInformeByTitulo_o_UserIdMethodKey14 = new MethodKey(_classLoaderProxy.getClassName(),
+            "getInformeByTitulo_o_UserId", java.lang.String.class,
+            java.lang.Long.class);
+    private MethodKey _getCountInformeByTitulo_o_UserIdMethodKey15 = new MethodKey(_classLoaderProxy.getClassName(),
+            "getCountInformeByTitulo_o_UserId", java.lang.String.class,
+            java.lang.Long.class);
+    private MethodKey _getInformeByTitulo_o_UserId_orderMethodKey16 = new MethodKey(_classLoaderProxy.getClassName(),
+            "getInformeByTitulo_o_UserId_order", java.lang.String.class,
+            java.lang.Long.class);
 
     public InformeLocalServiceClp(ClassLoaderProxy classLoaderProxy) {
         _classLoaderProxy = classLoaderProxy;
@@ -409,6 +418,84 @@ public class InformeLocalServiceClp implements InformeLocalService {
         }
 
         return (es.emergya.negocio.model.Informe) ClpSerializer.translateOutput(returnObj);
+    }
+
+    public java.util.List<es.emergya.negocio.model.Informe> getInformeByTitulo_o_UserId(
+        java.lang.String titulo, java.lang.Long userId)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        Object returnObj = null;
+
+        MethodHandler methodHandler = new MethodHandler(_getInformeByTitulo_o_UserIdMethodKey14,
+                titulo, userId);
+
+        try {
+            returnObj = _classLoaderProxy.invoke(methodHandler);
+        } catch (Throwable t) {
+            if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
+                throw (com.liferay.portal.kernel.exception.SystemException) t;
+            }
+
+            if (t instanceof RuntimeException) {
+                throw (RuntimeException) t;
+            } else {
+                throw new RuntimeException(t.getClass().getName() +
+                    " is not a valid exception");
+            }
+        }
+
+        return (java.util.List<es.emergya.negocio.model.Informe>) ClpSerializer.translateOutput(returnObj);
+    }
+
+    public int getCountInformeByTitulo_o_UserId(java.lang.String titulo,
+        java.lang.Long userId)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        Object returnObj = null;
+
+        MethodHandler methodHandler = new MethodHandler(_getCountInformeByTitulo_o_UserIdMethodKey15,
+                titulo, userId);
+
+        try {
+            returnObj = _classLoaderProxy.invoke(methodHandler);
+        } catch (Throwable t) {
+            if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
+                throw (com.liferay.portal.kernel.exception.SystemException) t;
+            }
+
+            if (t instanceof RuntimeException) {
+                throw (RuntimeException) t;
+            } else {
+                throw new RuntimeException(t.getClass().getName() +
+                    " is not a valid exception");
+            }
+        }
+
+        return ((Integer) returnObj).intValue();
+    }
+
+    public java.util.List<es.emergya.negocio.model.Informe> getInformeByTitulo_o_UserId_order(
+        java.lang.String titulo, java.lang.Long userId)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        Object returnObj = null;
+
+        MethodHandler methodHandler = new MethodHandler(_getInformeByTitulo_o_UserId_orderMethodKey16,
+                titulo, userId);
+
+        try {
+            returnObj = _classLoaderProxy.invoke(methodHandler);
+        } catch (Throwable t) {
+            if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
+                throw (com.liferay.portal.kernel.exception.SystemException) t;
+            }
+
+            if (t instanceof RuntimeException) {
+                throw (RuntimeException) t;
+            } else {
+                throw new RuntimeException(t.getClass().getName() +
+                    " is not a valid exception");
+            }
+        }
+
+        return (java.util.List<es.emergya.negocio.model.Informe>) ClpSerializer.translateOutput(returnObj);
     }
 
     public ClassLoaderProxy getClassLoaderProxy() {

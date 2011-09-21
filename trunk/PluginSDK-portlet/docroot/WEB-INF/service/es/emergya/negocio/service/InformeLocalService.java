@@ -208,4 +208,43 @@ public interface InformeLocalService {
         java.lang.String descripcion, java.util.Date fechaCreacion,
         java.lang.Long userId, java.lang.Long companyId, java.lang.Long groupId)
         throws com.liferay.portal.kernel.exception.SystemException;
+
+    /**
+    * Obtiene el listado de informes por titulo o userId
+    *
+    * @param titulo
+    * @param userId
+    * @return list de informes
+    * @throws SystemException
+    */
+    @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+    public java.util.List<es.emergya.negocio.model.Informe> getInformeByTitulo_o_UserId(
+        java.lang.String titulo, java.lang.Long userId)
+        throws com.liferay.portal.kernel.exception.SystemException;
+
+    /**
+    * Obtiene el numero de resultados
+    *
+    * @param titulo
+    * @param userId
+    * @return count
+    * @throws SystemException
+    */
+    @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+    public int getCountInformeByTitulo_o_UserId(java.lang.String titulo,
+        java.lang.Long userId)
+        throws com.liferay.portal.kernel.exception.SystemException;
+
+    /**
+    * Obtiene el listado de informes por titulo o userId ordenado por titulo asc
+    *
+    * @param titulo
+    * @param userId
+    * @return list de informes
+    * @throws SystemException
+    */
+    @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+    public java.util.List<es.emergya.negocio.model.Informe> getInformeByTitulo_o_UserId_order(
+        java.lang.String titulo, java.lang.Long userId)
+        throws com.liferay.portal.kernel.exception.SystemException;
 }
