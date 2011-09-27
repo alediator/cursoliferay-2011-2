@@ -12,13 +12,13 @@ public class InvoiceDisplayTerms extends DisplayTerms{
 		super(portletRequest);
 
 		// Paso 4: Recuperacion de parametros de la peticion 
-		descripcion = ParamUtil.getString(portletRequest, DESCRIPTION);
+		descripcion = ParamUtil.getString(portletRequest, DESCRIPCION);
 		nombreCliente = ParamUtil.getString(portletRequest, NOMBRE_CLIENTE);
 		importeTotal = ParamUtil.getDouble(portletRequest, IMPORTE_TOTAL);
 	}
 	
 	// Paso 2: Literales que representan los nombres de cada campo
-	public static String DESCRIPTION= "Descripción";
+	public static String DESCRIPCION= "Descripción";
 	public static String NOMBRE_CLIENTE = "Nombre de cliente";
 	public static String IMPORTE_TOTAL= "Importe total";
 	

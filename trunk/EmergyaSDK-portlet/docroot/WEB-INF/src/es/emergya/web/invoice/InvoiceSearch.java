@@ -18,10 +18,23 @@ public class InvoiceSearch extends SearchContainer<Factura>{
 
 	public InvoiceSearch(PortletRequest portletRequest, PortletURL iteratorURL) {
 		
+		// Paso 1.1: Llamada al constructor de la clase padre
+		super(portletRequest, new InvoiceDisplayTerms(portletRequest),
+				new InvoiceSearchTerm(portletRequest), DEFAULT_CUR_PARAM,
+				DEFAULT_CUR, 5, iteratorURL, headerNames, EMPTY_RESULTS_MESSAGE);
 		
+		// Paso 1.2: Inicializacion de iteratorURL en funcion de los parametros del fltro
+		InvoiceDisplayTerms displayTerms = (InvoiceDisplayTerms) getDisplayTerms();
+		iteratorURL.setParameter(InvoiceDisplayTerms.DESCRIPCION, displayTerms.getDescripcion());
+		iteratorURL.setParameter(InvoiceDisplayTerms.NOMBRE_CLIENTE, displayTerms.getNombreCliente());
+		iteratorURL
+				.setParameter(
+						InvoiceDisplayTerms.IMPORTE_TOTAL,
+						((Double) displayTerms.getImporteTotal() != null) ? ((Double) displayTerms
+								.getImporteTotal()).toString() : "");
 		
-		
-		super(portletRequest, null, null, DEFAULT_CUR_PARAM, DEFAULT_CUR, 5, iteratorURL, headerNames, EMPTY_RESULTS_MESSAGE);
+		//Paso 1.3: Inicializacion de los ordenable headers
+		setOrderableHeaders(orderableHeaders);
 		
 	}
 	
