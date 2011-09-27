@@ -20,11 +20,18 @@
 <%@page import="es.emergya.web.invoice.InvoiceSearch"%>
 <%@ taglib uri="http://java.sun.com/portlet_2_0" prefix="portlet" %>
 <%@ taglib uri="http://liferay.com/tld/ui" prefix="liferay-ui" %>
+<%@ taglib uri="http://liferay.com/tld/util" prefix="liferay-util" %>
 <%@ taglib uri="http://liferay.com/tld/theme" prefix="theme" %>
 
 <portlet:defineObjects />
 <theme:defineObjects />
 
+	<liferay-util:include 
+		page="/html/invoicemanager/botonera.jsp" 
+		servletContext="<%= this.getServletContext() %>">
+		<liferay-util:param name="toolbarItem" value="view-all"></liferay-util:param>
+	</liferay-util:include>
+	
 <%
 	PortletURL portletUrl = renderResponse.createRenderURL();
 	String actionPortletUrl = portletUrl.toString();
