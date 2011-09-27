@@ -14,6 +14,7 @@
 */
 --%>
 
+<%@page import="com.liferay.portal.kernel.util.ParamUtil"%>
 <%@page import="es.emergya.web.invoice.InvoiceDisplayTerms"%>
 <%@page import="es.emergya.negocio.service.FacturaLocalServiceUtil"%>
 <%@page import="javax.portlet.PortletURL"%>
@@ -33,18 +34,25 @@
 	</liferay-util:include>
 	
 <%
-	PortletURL portletUrl = renderResponse.createRenderURL();
-	String actionPortletUrl = portletUrl.toString();
-	InvoiceSearch invoiceContainer = new es.emergya.web.invoice.InvoiceSearch(renderRequest, portletUrl);
-%>
+		PortletURL portletUrl = renderResponse.createRenderURL();
+		String actionPortletUrl = portletUrl.toString();
+	%>
 
-<form method="post" action="<%= actionPortletUrl %>">
-	<liferay-ui:search-container searchContainer="<%= invoiceContainer %>">
+<form method="post" action="<%=actionPortletUrl%>">
+	<liferay-ui:search-container searchContainer="<%= new es.emergya.web.invoice.InvoiceSearch(renderRequest, portletUrl) %>">
 		<liferay-ui:search-container-results>
 			<%
 				total = FacturaLocalServiceUtil.getFacturasCount();
-				results = FacturaLocalServiceUtil.getFacturas(0,total);
+						//results = FacturaLocalServiceUtil.getFacturas(0,total);
 				
+				System.out.println("cur --> "+ ParamUtil.getInteger(renderRequest, "cur"));
+				System.out.println("searchContainer.getStart() --> "+ searchContainer.getStart());
+				System.out.println("searchContainer.getEnd() --> "+ searchContainer.getEnd());
+						
+				results = FacturaLocalServiceUtil.getFacturas(
+						searchContainer.getStart(),
+						searchContainer.getEnd());
+
 				pageContext.setAttribute("results", results);
 				pageContext.setAttribute("total", total);
 			%>

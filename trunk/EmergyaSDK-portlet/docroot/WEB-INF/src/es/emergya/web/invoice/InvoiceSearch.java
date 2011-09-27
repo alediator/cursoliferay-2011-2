@@ -26,8 +26,8 @@ public class InvoiceSearch extends SearchContainer<Factura>{
 		
 		// Paso 1.1: Llamada al constructor de la clase padre
 		super(portletRequest, new InvoiceDisplayTerms(portletRequest),
-				new InvoiceSearchTerm(portletRequest), DEFAULT_CUR_PARAM,
-				DEFAULT_CUR, 5, iteratorURL, headerNames, EMPTY_RESULTS_MESSAGE);
+				new InvoiceSearchTerm(portletRequest), DEFAULT_CUR_PARAM, 
+				5, iteratorURL, headerNames, EMPTY_RESULTS_MESSAGE);
 		
 		try {
 		
