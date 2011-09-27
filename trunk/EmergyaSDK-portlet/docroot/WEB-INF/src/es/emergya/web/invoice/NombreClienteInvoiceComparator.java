@@ -12,12 +12,12 @@ import es.emergya.negocio.model.Factura;
  *
  */
 public class NombreClienteInvoiceComparator extends OrderByComparator {
-
+	
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 3798287454362750234L;
-	
+	private static final long serialVersionUID = 4396734183288790951L;
+
 	// Paso 1: Asc
 	private boolean asc;
 	
