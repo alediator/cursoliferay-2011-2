@@ -16,8 +16,22 @@
 	<liferay-util:param name="toolbarItem" value="add"></liferay-util:param>
 </liferay-util:include>
 
+<portlet:renderURL var="backURL">
+	<liferay-util:param name="view-jsp" value="/html/invoicemanager/view.jsp"></liferay-util:param>
+</portlet:renderURL>
+
 <portlet:actionURL name="addFactura" var="addFactura">
 </portlet:actionURL>
 
+<liferay-ui:header title="Nueva Factura"
+					backURL="<%= backURL %>">
+</liferay-ui:header>
+
 <form method="post" action="<%= addFactura %>">
+	<div style="height:250px">
+		<div><div style="float:left;padding-right:50px;width:100px;"><label>Descripcion</label></div><div style="float:right"><input type="text" name="descripcion" /></div></div>
+		<div style="clear:both"><div style="float:left;padding-right:50px;width:100px;"><label style="padding-right:50px;width:100px;">Nombre de Cliente</label></div><div style="float:right"><input type="text" name="nombreCliente" /></div></div>
+		<div style="clear:both"><div style="float:left;padding-right:50px;width:100px;"><label style="padding-right:50px;width:100px;">Importe Total</label></div><div style="float:right"><input type="text" name="importeTotal" ></textarea></div></div>
+		<div style="clear:both"><input type="submit" value="Guardar Factura" /></div>
+	</div>
 </form>
