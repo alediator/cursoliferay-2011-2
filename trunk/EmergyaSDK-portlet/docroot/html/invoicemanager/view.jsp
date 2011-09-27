@@ -14,8 +14,55 @@
 */
 --%>
 
+<%@page import="es.emergya.web.invoice.InvoiceDisplayTerms"%>
+<%@page import="es.emergya.negocio.service.FacturaLocalServiceUtil"%>
+<%@page import="javax.portlet.PortletURL"%>
+<%@page import="es.emergya.web.invoice.InvoiceSearch"%>
 <%@ taglib uri="http://java.sun.com/portlet_2_0" prefix="portlet" %>
+<%@ taglib uri="http://liferay.com/tld/ui" prefix="liferay-ui" %>
+<%@ taglib uri="http://liferay.com/tld/theme" prefix="theme" %>
 
 <portlet:defineObjects />
+<theme:defineObjects />
 
-This is the <b>InvoiceManager</b> portlet in View mode.
+<%
+	PortletURL portletUrl = renderResponse.createRenderURL();
+	String actionPortletUrl = portletUrl.toString();
+	InvoiceSearch invoiceContainer = new es.emergya.web.invoice.InvoiceSearch(renderRequest, portletUrl);
+%>
+
+<form method="post" action="<%= actionPortletUrl %>">
+	<liferay-ui:search-container searchContainer="<%= invoiceContainer %>">
+		<liferay-ui:search-container-results>
+			<%
+				total = FacturaLocalServiceUtil.getFacturasCount();
+				results = FacturaLocalServiceUtil.getFacturas(0,total);
+				
+				pageContext.setAttribute("results", results);
+				pageContext.setAttribute("total", total);
+			%>
+		</liferay-ui:search-container-results>
+		
+		<liferay-ui:search-container-row 
+			className="es.emergya.negocio.model.Factura" 
+			keyProperty="facturaId"
+			modelVar="f">
+			<liferay-ui:search-container-column-text
+				name="<%= es.emergya.web.invoice.InvoiceDisplayTerms.DESCRIPCION %>" 
+				value="<%= f.getDescripcion()%>"
+				orderable="<%= false%>">
+			</liferay-ui:search-container-column-text>
+			<liferay-ui:search-container-column-text
+				name="<%= es.emergya.web.invoice.InvoiceDisplayTerms.NOMBRE_CLIENTE %>" 
+				value="<%= f.getNombreCliente()%>"
+				orderable="<%= false%>">
+			</liferay-ui:search-container-column-text>
+			<liferay-ui:search-container-column-text
+				name="<%= es.emergya.web.invoice.InvoiceDisplayTerms.IMPORTE_TOTAL %>" 
+				value="<%= new Double (f.getImporteTotal()).toString()%>"
+				orderable="<%= false%>">
+			</liferay-ui:search-container-column-text>
+		</liferay-ui:search-container-row>
+		<liferay-ui:search-iterator />
+	</liferay-ui:search-container>
+</form>
