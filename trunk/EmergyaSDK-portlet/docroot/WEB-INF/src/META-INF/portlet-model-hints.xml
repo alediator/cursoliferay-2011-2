@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<model-hints>
+	<model name="es.emergya.negocio.model.Factura">
+		<field name="facturaId" type="long" />
+		<field name="nombreCliente" type="String" />
+		<field name="importeTotal" type="double" />
+		<field name="descripcion" type="String" />
+	</model>
+	<model name="es.emergya.negocio.model.LineaDeFactura">
+		<field name="lineaDeacturaId" type="long" />
+		<field name="detalle" type="String" />
+		<field name="importe" type="double" />
+		<field name="facturaId" type="long" />
+	</model>
+</model-hints>

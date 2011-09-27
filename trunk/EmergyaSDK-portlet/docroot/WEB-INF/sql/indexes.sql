@@ -1,0 +1,1 @@
+create index IX_42967963 on factura (nombreCliente);

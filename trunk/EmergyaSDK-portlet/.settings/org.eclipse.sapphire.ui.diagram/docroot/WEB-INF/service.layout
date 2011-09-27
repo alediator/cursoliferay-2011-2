@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diagram-geometry>
+    <grid>
+        <visible>true</visible>
+    </grid>
+    <guides>
+        <visible>false</visible>
+    </guides>
+    <node>
+        <id>Entity#Factura</id>
+        <bounds x="50" y="50"/>
+    </node>
+    <node>
+        <id>Entity#LineaDeFactura</id>
+        <bounds x="50" y="50"/>
+    </node>
+</diagram-geometry>

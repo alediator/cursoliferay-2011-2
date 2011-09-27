@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd">
+	<persistence-unit-metadata>
+		<xml-mapping-metadata-complete/>
+		<persistence-unit-defaults>
+			<access>PROPERTY</access>
+		</persistence-unit-defaults>
+	</persistence-unit-metadata>
+	<mapped-superclass class="es.emergya.negocio.model.impl.FacturaModelImpl">
+		<attributes>
+			<id name="facturaId" />
+			<basic name="nombreCliente" />
+			<basic name="importeTotal" />
+			<basic name="descripcion" />
+			<transient name="primaryKey" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="es.emergya.negocio.model.impl.LineaDeFacturaModelImpl">
+		<attributes>
+			<id name="lineaDeacturaId" />
+			<basic name="detalle" />
+			<basic name="importe" />
+			<basic name="facturaId" />
+			<transient name="primaryKey" />
+		</attributes>
+	</mapped-superclass>
+	<entity class="es.emergya.negocio.model.impl.FacturaImpl" name="Factura">
+		<table name="factura" />
+		<attributes />
+	</entity>
+	<entity class="es.emergya.negocio.model.impl.LineaDeFacturaImpl" name="LineaDeFactura">
+		<table name="lineaDeFactura" />
+		<attributes />
+	</entity>
+</entity-mappings>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-lazy="false" auto-import="false">
+	<import class="es.emergya.negocio.model.Factura" />
+	<import class="es.emergya.negocio.model.LineaDeFactura" />
+	<class name="es.emergya.negocio.model.impl.FacturaImpl" table="factura">
+		<cache usage="read-write" />
+		<id name="facturaId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="nombreCliente" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="importeTotal" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+		<property name="descripcion" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="es.emergya.negocio.model.impl.LineaDeFacturaImpl" table="lineaDeFactura">
+		<cache usage="read-write" />
+		<id name="lineaDeacturaId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="detalle" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="importe" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+		<property name="facturaId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+	</class>
+</hibernate-mapping>

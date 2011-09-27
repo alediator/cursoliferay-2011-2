@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE display PUBLIC "-//Liferay//DTD Display 6.0.0//EN" "http://www.liferay.com/dtd/liferay-display_6_0_0.dtd">
+
+<display>
+	<category name="category.sample">
+
+		<portlet id="gestor03"></portlet>
+		<portlet id="visorroles"></portlet>
+		<portlet id="visorimagenes"></portlet>
+		<portlet id="visordeavatar"></portlet>
+	</category>
+	<category name="category.development">
+		<portlet id="gestor01"></portlet>
+	</category>
+</display>
