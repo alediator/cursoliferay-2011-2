@@ -6,7 +6,7 @@
 
 
 <p>
-	Soy el tio feo de 7cogs <img
+	Soy el usuario logado <img
 		src="<%=themeDisplay.getPathImage()%>/user_portrait?screenName=<%=user.getUserId()%>&companyId=<%=company.getCompanyId()%>"
 		alt="feo"></img>
 </p>
