@@ -58,6 +58,11 @@
 			%>
 		</liferay-ui:search-container-results>
 		
+		<liferay-ui:search-form page="/html/invoicemanager/facturasSearchForm.jsp"
+			servletContext="<%= this.getServletContext()%>">
+		</liferay-ui:search-form>
+		
+		
 		<liferay-ui:search-container-row 
 			className="es.emergya.negocio.model.Factura" 
 			keyProperty="facturaId"
