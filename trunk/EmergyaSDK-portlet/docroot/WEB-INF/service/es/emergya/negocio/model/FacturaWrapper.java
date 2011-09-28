@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2010 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package es.emergya.negocio.model;
 
 /**
@@ -24,114 +10,114 @@ package es.emergya.negocio.model;
  * @generated
  */
 public class FacturaWrapper implements Factura {
-	public FacturaWrapper(Factura factura) {
-		_factura = factura;
-	}
+    private Factura _factura;
 
-	public long getPrimaryKey() {
-		return _factura.getPrimaryKey();
-	}
+    public FacturaWrapper(Factura factura) {
+        _factura = factura;
+    }
 
-	public void setPrimaryKey(long pk) {
-		_factura.setPrimaryKey(pk);
-	}
+    public long getPrimaryKey() {
+        return _factura.getPrimaryKey();
+    }
 
-	public long getFacturaId() {
-		return _factura.getFacturaId();
-	}
+    public void setPrimaryKey(long pk) {
+        _factura.setPrimaryKey(pk);
+    }
 
-	public void setFacturaId(long facturaId) {
-		_factura.setFacturaId(facturaId);
-	}
+    public long getFacturaId() {
+        return _factura.getFacturaId();
+    }
 
-	public java.lang.String getNombreCliente() {
-		return _factura.getNombreCliente();
-	}
+    public void setFacturaId(long facturaId) {
+        _factura.setFacturaId(facturaId);
+    }
 
-	public void setNombreCliente(java.lang.String nombreCliente) {
-		_factura.setNombreCliente(nombreCliente);
-	}
+    public java.lang.String getNombreCliente() {
+        return _factura.getNombreCliente();
+    }
 
-	public double getImporteTotal() {
-		return _factura.getImporteTotal();
-	}
+    public void setNombreCliente(java.lang.String nombreCliente) {
+        _factura.setNombreCliente(nombreCliente);
+    }
 
-	public void setImporteTotal(double importeTotal) {
-		_factura.setImporteTotal(importeTotal);
-	}
+    public double getImporteTotal() {
+        return _factura.getImporteTotal();
+    }
 
-	public java.lang.String getDescripcion() {
-		return _factura.getDescripcion();
-	}
+    public void setImporteTotal(double importeTotal) {
+        _factura.setImporteTotal(importeTotal);
+    }
 
-	public void setDescripcion(java.lang.String descripcion) {
-		_factura.setDescripcion(descripcion);
-	}
+    public java.lang.String getDescripcion() {
+        return _factura.getDescripcion();
+    }
 
-	public es.emergya.negocio.model.Factura toEscapedModel() {
-		return _factura.toEscapedModel();
-	}
+    public void setDescripcion(java.lang.String descripcion) {
+        _factura.setDescripcion(descripcion);
+    }
 
-	public boolean isNew() {
-		return _factura.isNew();
-	}
+    public es.emergya.negocio.model.Factura toEscapedModel() {
+        return _factura.toEscapedModel();
+    }
 
-	public void setNew(boolean n) {
-		_factura.setNew(n);
-	}
+    public boolean isNew() {
+        return _factura.isNew();
+    }
 
-	public boolean isCachedModel() {
-		return _factura.isCachedModel();
-	}
+    public void setNew(boolean n) {
+        _factura.setNew(n);
+    }
 
-	public void setCachedModel(boolean cachedModel) {
-		_factura.setCachedModel(cachedModel);
-	}
+    public boolean isCachedModel() {
+        return _factura.isCachedModel();
+    }
 
-	public boolean isEscapedModel() {
-		return _factura.isEscapedModel();
-	}
+    public void setCachedModel(boolean cachedModel) {
+        _factura.setCachedModel(cachedModel);
+    }
 
-	public void setEscapedModel(boolean escapedModel) {
-		_factura.setEscapedModel(escapedModel);
-	}
+    public boolean isEscapedModel() {
+        return _factura.isEscapedModel();
+    }
 
-	public java.io.Serializable getPrimaryKeyObj() {
-		return _factura.getPrimaryKeyObj();
-	}
+    public void setEscapedModel(boolean escapedModel) {
+        _factura.setEscapedModel(escapedModel);
+    }
 
-	public com.liferay.portlet.expando.model.ExpandoBridge getExpandoBridge() {
-		return _factura.getExpandoBridge();
-	}
+    public java.io.Serializable getPrimaryKeyObj() {
+        return _factura.getPrimaryKeyObj();
+    }
 
-	public void setExpandoBridgeAttributes(
-		com.liferay.portal.service.ServiceContext serviceContext) {
-		_factura.setExpandoBridgeAttributes(serviceContext);
-	}
+    public com.liferay.portlet.expando.model.ExpandoBridge getExpandoBridge() {
+        return _factura.getExpandoBridge();
+    }
 
-	public java.lang.Object clone() {
-		return _factura.clone();
-	}
+    public void setExpandoBridgeAttributes(
+        com.liferay.portal.service.ServiceContext serviceContext) {
+        _factura.setExpandoBridgeAttributes(serviceContext);
+    }
 
-	public int compareTo(es.emergya.negocio.model.Factura factura) {
-		return _factura.compareTo(factura);
-	}
+    public java.lang.Object clone() {
+        return _factura.clone();
+    }
 
-	public int hashCode() {
-		return _factura.hashCode();
-	}
+    public int compareTo(es.emergya.negocio.model.Factura factura) {
+        return _factura.compareTo(factura);
+    }
 
-	public java.lang.String toString() {
-		return _factura.toString();
-	}
+    public int hashCode() {
+        return _factura.hashCode();
+    }
 
-	public java.lang.String toXmlString() {
-		return _factura.toXmlString();
-	}
+    public java.lang.String toString() {
+        return _factura.toString();
+    }
 
-	public Factura getWrappedFactura() {
-		return _factura;
-	}
+    public java.lang.String toXmlString() {
+        return _factura.toXmlString();
+    }
 
-	private Factura _factura;
+    public Factura getWrappedFactura() {
+        return _factura;
+    }
 }

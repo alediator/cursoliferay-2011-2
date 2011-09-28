@@ -42,16 +42,26 @@
 	<liferay-ui:search-container searchContainer="<%= new es.emergya.web.invoice.InvoiceSearch(renderRequest, portletUrl) %>">
 		<liferay-ui:search-container-results>
 			<%
-				total = FacturaLocalServiceUtil.getFacturasCount();
+				//total = FacturaLocalServiceUtil.getFacturasCount();
 						//results = FacturaLocalServiceUtil.getFacturas(0,total);
 				
 				System.out.println("cur --> "+ ParamUtil.getInteger(renderRequest, "cur"));
 				System.out.println("searchContainer.getStart() --> "+ searchContainer.getStart());
 				System.out.println("searchContainer.getEnd() --> "+ searchContainer.getEnd());
-						
+				
+				String descricion = ParamUtil.getString(renderRequest, InvoiceDisplayTerms.DESCRIPCION);
+				String nombreCliente = ParamUtil.getString(renderRequest, InvoiceDisplayTerms.NOMBRE_CLIENTE);
+				Long importeTotal = ParamUtil.getLong(renderRequest, InvoiceDisplayTerms.IMPORTE_TOTAL);
+				
+				
+				
 				results = FacturaLocalServiceUtil.getFacturas(
 						searchContainer.getStart(),
 						searchContainer.getEnd());
+				
+				total = FacturaLocalServiceUtil.searchCount(company.getCompanyId(), java.lang.String keywords,
+				        int start, int end,
+				        com.liferay.portal.kernel.util.OrderByComparator comparator);
 
 				pageContext.setAttribute("results", results);
 				pageContext.setAttribute("total", total);

@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2010 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package es.emergya.negocio.model;
 
 import com.liferay.portal.kernel.annotation.AutoEscape;
@@ -40,111 +26,111 @@ import java.io.Serializable;
  * @generated
  */
 public interface FacturaModel extends BaseModel<Factura> {
-	/**
-	 * Gets the primary key of this factura.
-	 *
-	 * @return the primary key of this factura
-	 */
-	public long getPrimaryKey();
+    /**
+     * Gets the primary key of this factura.
+     *
+     * @return the primary key of this factura
+     */
+    public long getPrimaryKey();
 
-	/**
-	 * Sets the primary key of this factura
-	 *
-	 * @param pk the primary key of this factura
-	 */
-	public void setPrimaryKey(long pk);
+    /**
+     * Sets the primary key of this factura
+     *
+     * @param pk the primary key of this factura
+     */
+    public void setPrimaryKey(long pk);
 
-	/**
-	 * Gets the factura id of this factura.
-	 *
-	 * @return the factura id of this factura
-	 */
-	public long getFacturaId();
+    /**
+     * Gets the factura id of this factura.
+     *
+     * @return the factura id of this factura
+     */
+    public long getFacturaId();
 
-	/**
-	 * Sets the factura id of this factura.
-	 *
-	 * @param facturaId the factura id of this factura
-	 */
-	public void setFacturaId(long facturaId);
+    /**
+     * Sets the factura id of this factura.
+     *
+     * @param facturaId the factura id of this factura
+     */
+    public void setFacturaId(long facturaId);
 
-	/**
-	 * Gets the nombre cliente of this factura.
-	 *
-	 * @return the nombre cliente of this factura
-	 */
-	@AutoEscape
-	public String getNombreCliente();
+    /**
+     * Gets the nombre cliente of this factura.
+     *
+     * @return the nombre cliente of this factura
+     */
+    @AutoEscape
+    public String getNombreCliente();
 
-	/**
-	 * Sets the nombre cliente of this factura.
-	 *
-	 * @param nombreCliente the nombre cliente of this factura
-	 */
-	public void setNombreCliente(String nombreCliente);
+    /**
+     * Sets the nombre cliente of this factura.
+     *
+     * @param nombreCliente the nombre cliente of this factura
+     */
+    public void setNombreCliente(String nombreCliente);
 
-	/**
-	 * Gets the importe total of this factura.
-	 *
-	 * @return the importe total of this factura
-	 */
-	public double getImporteTotal();
+    /**
+     * Gets the importe total of this factura.
+     *
+     * @return the importe total of this factura
+     */
+    public double getImporteTotal();
 
-	/**
-	 * Sets the importe total of this factura.
-	 *
-	 * @param importeTotal the importe total of this factura
-	 */
-	public void setImporteTotal(double importeTotal);
+    /**
+     * Sets the importe total of this factura.
+     *
+     * @param importeTotal the importe total of this factura
+     */
+    public void setImporteTotal(double importeTotal);
 
-	/**
-	 * Gets the descripcion of this factura.
-	 *
-	 * @return the descripcion of this factura
-	 */
-	@AutoEscape
-	public String getDescripcion();
+    /**
+     * Gets the descripcion of this factura.
+     *
+     * @return the descripcion of this factura
+     */
+    @AutoEscape
+    public String getDescripcion();
 
-	/**
-	 * Sets the descripcion of this factura.
-	 *
-	 * @param descripcion the descripcion of this factura
-	 */
-	public void setDescripcion(String descripcion);
+    /**
+     * Sets the descripcion of this factura.
+     *
+     * @param descripcion the descripcion of this factura
+     */
+    public void setDescripcion(String descripcion);
 
-	/**
-	 * Gets a copy of this factura as an escaped model instance by wrapping it with an {@link com.liferay.portal.kernel.bean.AutoEscapeBeanHandler}.
-	 *
-	 * @return the escaped model instance
-	 * @see com.liferay.portal.kernel.bean.AutoEscapeBeanHandler
-	 */
-	public Factura toEscapedModel();
+    /**
+     * Gets a copy of this factura as an escaped model instance by wrapping it with an {@link com.liferay.portal.kernel.bean.AutoEscapeBeanHandler}.
+     *
+     * @return the escaped model instance
+     * @see com.liferay.portal.kernel.bean.AutoEscapeBeanHandler
+     */
+    public Factura toEscapedModel();
 
-	public boolean isNew();
+    public boolean isNew();
 
-	public void setNew(boolean n);
+    public void setNew(boolean n);
 
-	public boolean isCachedModel();
+    public boolean isCachedModel();
 
-	public void setCachedModel(boolean cachedModel);
+    public void setCachedModel(boolean cachedModel);
 
-	public boolean isEscapedModel();
+    public boolean isEscapedModel();
 
-	public void setEscapedModel(boolean escapedModel);
+    public void setEscapedModel(boolean escapedModel);
 
-	public Serializable getPrimaryKeyObj();
+    public Serializable getPrimaryKeyObj();
 
-	public ExpandoBridge getExpandoBridge();
+    public ExpandoBridge getExpandoBridge();
 
-	public void setExpandoBridgeAttributes(ServiceContext serviceContext);
+    public void setExpandoBridgeAttributes(ServiceContext serviceContext);
 
-	public Object clone();
+    public Object clone();
 
-	public int compareTo(Factura factura);
+    public int compareTo(Factura factura);
 
-	public int hashCode();
+    public int hashCode();
 
-	public String toString();
+    public String toString();
 
-	public String toXmlString();
+    public String toXmlString();
 }

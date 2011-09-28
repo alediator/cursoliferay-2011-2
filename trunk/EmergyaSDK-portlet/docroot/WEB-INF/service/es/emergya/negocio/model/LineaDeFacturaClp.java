@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2010 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package es.emergya.negocio.model;
 
 import com.liferay.portal.kernel.bean.AutoEscapeBeanHandler;
@@ -22,169 +8,162 @@ import java.io.Serializable;
 
 import java.lang.reflect.Proxy;
 
-/**
- * @author adiaz
- */
+
 public class LineaDeFacturaClp extends BaseModelImpl<LineaDeFactura>
-	implements LineaDeFactura {
-	public LineaDeFacturaClp() {
-	}
+    implements LineaDeFactura {
+    private long _lineaDeacturaId;
+    private String _detalle;
+    private double _importe;
+    private long _facturaId;
 
-	public long getPrimaryKey() {
-		return _lineaDeacturaId;
-	}
+    public LineaDeFacturaClp() {
+    }
 
-	public void setPrimaryKey(long pk) {
-		setLineaDeacturaId(pk);
-	}
+    public long getPrimaryKey() {
+        return _lineaDeacturaId;
+    }
 
-	public Serializable getPrimaryKeyObj() {
-		return new Long(_lineaDeacturaId);
-	}
+    public void setPrimaryKey(long pk) {
+        setLineaDeacturaId(pk);
+    }
 
-	public long getLineaDeacturaId() {
-		return _lineaDeacturaId;
-	}
+    public Serializable getPrimaryKeyObj() {
+        return new Long(_lineaDeacturaId);
+    }
 
-	public void setLineaDeacturaId(long lineaDeacturaId) {
-		_lineaDeacturaId = lineaDeacturaId;
-	}
+    public long getLineaDeacturaId() {
+        return _lineaDeacturaId;
+    }
 
-	public String getDetalle() {
-		return _detalle;
-	}
+    public void setLineaDeacturaId(long lineaDeacturaId) {
+        _lineaDeacturaId = lineaDeacturaId;
+    }
 
-	public void setDetalle(String detalle) {
-		_detalle = detalle;
-	}
+    public String getDetalle() {
+        return _detalle;
+    }
 
-	public double getImporte() {
-		return _importe;
-	}
+    public void setDetalle(String detalle) {
+        _detalle = detalle;
+    }
 
-	public void setImporte(double importe) {
-		_importe = importe;
-	}
+    public double getImporte() {
+        return _importe;
+    }
 
-	public long getFacturaId() {
-		return _facturaId;
-	}
+    public void setImporte(double importe) {
+        _importe = importe;
+    }
 
-	public void setFacturaId(long facturaId) {
-		_facturaId = facturaId;
-	}
+    public long getFacturaId() {
+        return _facturaId;
+    }
 
-	public LineaDeFactura toEscapedModel() {
-		if (isEscapedModel()) {
-			return this;
-		}
-		else {
-			return (LineaDeFactura)Proxy.newProxyInstance(LineaDeFactura.class.getClassLoader(),
-				new Class[] { LineaDeFactura.class },
-				new AutoEscapeBeanHandler(this));
-		}
-	}
+    public void setFacturaId(long facturaId) {
+        _facturaId = facturaId;
+    }
 
-	public Object clone() {
-		LineaDeFacturaClp clone = new LineaDeFacturaClp();
+    public LineaDeFactura toEscapedModel() {
+        if (isEscapedModel()) {
+            return this;
+        } else {
+            return (LineaDeFactura) Proxy.newProxyInstance(LineaDeFactura.class.getClassLoader(),
+                new Class[] { LineaDeFactura.class },
+                new AutoEscapeBeanHandler(this));
+        }
+    }
 
-		clone.setLineaDeacturaId(getLineaDeacturaId());
-		clone.setDetalle(getDetalle());
-		clone.setImporte(getImporte());
-		clone.setFacturaId(getFacturaId());
+    public Object clone() {
+        LineaDeFacturaClp clone = new LineaDeFacturaClp();
 
-		return clone;
-	}
+        clone.setLineaDeacturaId(getLineaDeacturaId());
+        clone.setDetalle(getDetalle());
+        clone.setImporte(getImporte());
+        clone.setFacturaId(getFacturaId());
 
-	public int compareTo(LineaDeFactura lineaDeFactura) {
-		long pk = lineaDeFactura.getPrimaryKey();
+        return clone;
+    }
 
-		if (getPrimaryKey() < pk) {
-			return -1;
-		}
-		else if (getPrimaryKey() > pk) {
-			return 1;
-		}
-		else {
-			return 0;
-		}
-	}
+    public int compareTo(LineaDeFactura lineaDeFactura) {
+        long pk = lineaDeFactura.getPrimaryKey();
 
-	public boolean equals(Object obj) {
-		if (obj == null) {
-			return false;
-		}
+        if (getPrimaryKey() < pk) {
+            return -1;
+        } else if (getPrimaryKey() > pk) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
 
-		LineaDeFacturaClp lineaDeFactura = null;
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
 
-		try {
-			lineaDeFactura = (LineaDeFacturaClp)obj;
-		}
-		catch (ClassCastException cce) {
-			return false;
-		}
+        LineaDeFacturaClp lineaDeFactura = null;
 
-		long pk = lineaDeFactura.getPrimaryKey();
+        try {
+            lineaDeFactura = (LineaDeFacturaClp) obj;
+        } catch (ClassCastException cce) {
+            return false;
+        }
 
-		if (getPrimaryKey() == pk) {
-			return true;
-		}
-		else {
-			return false;
-		}
-	}
+        long pk = lineaDeFactura.getPrimaryKey();
 
-	public int hashCode() {
-		return (int)getPrimaryKey();
-	}
+        if (getPrimaryKey() == pk) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-	public String toString() {
-		StringBundler sb = new StringBundler(9);
+    public int hashCode() {
+        return (int) getPrimaryKey();
+    }
 
-		sb.append("{lineaDeacturaId=");
-		sb.append(getLineaDeacturaId());
-		sb.append(", detalle=");
-		sb.append(getDetalle());
-		sb.append(", importe=");
-		sb.append(getImporte());
-		sb.append(", facturaId=");
-		sb.append(getFacturaId());
-		sb.append("}");
+    public String toString() {
+        StringBundler sb = new StringBundler(9);
 
-		return sb.toString();
-	}
+        sb.append("{lineaDeacturaId=");
+        sb.append(getLineaDeacturaId());
+        sb.append(", detalle=");
+        sb.append(getDetalle());
+        sb.append(", importe=");
+        sb.append(getImporte());
+        sb.append(", facturaId=");
+        sb.append(getFacturaId());
+        sb.append("}");
 
-	public String toXmlString() {
-		StringBundler sb = new StringBundler(16);
+        return sb.toString();
+    }
 
-		sb.append("<model><model-name>");
-		sb.append("es.emergya.negocio.model.LineaDeFactura");
-		sb.append("</model-name>");
+    public String toXmlString() {
+        StringBundler sb = new StringBundler(16);
 
-		sb.append(
-			"<column><column-name>lineaDeacturaId</column-name><column-value><![CDATA[");
-		sb.append(getLineaDeacturaId());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>detalle</column-name><column-value><![CDATA[");
-		sb.append(getDetalle());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>importe</column-name><column-value><![CDATA[");
-		sb.append(getImporte());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>facturaId</column-name><column-value><![CDATA[");
-		sb.append(getFacturaId());
-		sb.append("]]></column-value></column>");
+        sb.append("<model><model-name>");
+        sb.append("es.emergya.negocio.model.LineaDeFactura");
+        sb.append("</model-name>");
 
-		sb.append("</model>");
+        sb.append(
+            "<column><column-name>lineaDeacturaId</column-name><column-value><![CDATA[");
+        sb.append(getLineaDeacturaId());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>detalle</column-name><column-value><![CDATA[");
+        sb.append(getDetalle());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>importe</column-name><column-value><![CDATA[");
+        sb.append(getImporte());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>facturaId</column-name><column-value><![CDATA[");
+        sb.append(getFacturaId());
+        sb.append("]]></column-value></column>");
 
-		return sb.toString();
-	}
+        sb.append("</model>");
 
-	private long _lineaDeacturaId;
-	private String _detalle;
-	private double _importe;
-	private long _facturaId;
+        return sb.toString();
+    }
 }

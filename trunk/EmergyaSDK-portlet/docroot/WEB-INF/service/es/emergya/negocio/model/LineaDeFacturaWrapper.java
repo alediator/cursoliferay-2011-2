@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2010 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package es.emergya.negocio.model;
 
 /**
@@ -24,114 +10,114 @@ package es.emergya.negocio.model;
  * @generated
  */
 public class LineaDeFacturaWrapper implements LineaDeFactura {
-	public LineaDeFacturaWrapper(LineaDeFactura lineaDeFactura) {
-		_lineaDeFactura = lineaDeFactura;
-	}
+    private LineaDeFactura _lineaDeFactura;
 
-	public long getPrimaryKey() {
-		return _lineaDeFactura.getPrimaryKey();
-	}
+    public LineaDeFacturaWrapper(LineaDeFactura lineaDeFactura) {
+        _lineaDeFactura = lineaDeFactura;
+    }
 
-	public void setPrimaryKey(long pk) {
-		_lineaDeFactura.setPrimaryKey(pk);
-	}
+    public long getPrimaryKey() {
+        return _lineaDeFactura.getPrimaryKey();
+    }
 
-	public long getLineaDeacturaId() {
-		return _lineaDeFactura.getLineaDeacturaId();
-	}
+    public void setPrimaryKey(long pk) {
+        _lineaDeFactura.setPrimaryKey(pk);
+    }
 
-	public void setLineaDeacturaId(long lineaDeacturaId) {
-		_lineaDeFactura.setLineaDeacturaId(lineaDeacturaId);
-	}
+    public long getLineaDeacturaId() {
+        return _lineaDeFactura.getLineaDeacturaId();
+    }
 
-	public java.lang.String getDetalle() {
-		return _lineaDeFactura.getDetalle();
-	}
+    public void setLineaDeacturaId(long lineaDeacturaId) {
+        _lineaDeFactura.setLineaDeacturaId(lineaDeacturaId);
+    }
 
-	public void setDetalle(java.lang.String detalle) {
-		_lineaDeFactura.setDetalle(detalle);
-	}
+    public java.lang.String getDetalle() {
+        return _lineaDeFactura.getDetalle();
+    }
 
-	public double getImporte() {
-		return _lineaDeFactura.getImporte();
-	}
+    public void setDetalle(java.lang.String detalle) {
+        _lineaDeFactura.setDetalle(detalle);
+    }
 
-	public void setImporte(double importe) {
-		_lineaDeFactura.setImporte(importe);
-	}
+    public double getImporte() {
+        return _lineaDeFactura.getImporte();
+    }
 
-	public long getFacturaId() {
-		return _lineaDeFactura.getFacturaId();
-	}
+    public void setImporte(double importe) {
+        _lineaDeFactura.setImporte(importe);
+    }
 
-	public void setFacturaId(long facturaId) {
-		_lineaDeFactura.setFacturaId(facturaId);
-	}
+    public long getFacturaId() {
+        return _lineaDeFactura.getFacturaId();
+    }
 
-	public LineaDeFactura toEscapedModel() {
-		return _lineaDeFactura.toEscapedModel();
-	}
+    public void setFacturaId(long facturaId) {
+        _lineaDeFactura.setFacturaId(facturaId);
+    }
 
-	public boolean isNew() {
-		return _lineaDeFactura.isNew();
-	}
+    public es.emergya.negocio.model.LineaDeFactura toEscapedModel() {
+        return _lineaDeFactura.toEscapedModel();
+    }
 
-	public void setNew(boolean n) {
-		_lineaDeFactura.setNew(n);
-	}
+    public boolean isNew() {
+        return _lineaDeFactura.isNew();
+    }
 
-	public boolean isCachedModel() {
-		return _lineaDeFactura.isCachedModel();
-	}
+    public void setNew(boolean n) {
+        _lineaDeFactura.setNew(n);
+    }
 
-	public void setCachedModel(boolean cachedModel) {
-		_lineaDeFactura.setCachedModel(cachedModel);
-	}
+    public boolean isCachedModel() {
+        return _lineaDeFactura.isCachedModel();
+    }
 
-	public boolean isEscapedModel() {
-		return _lineaDeFactura.isEscapedModel();
-	}
+    public void setCachedModel(boolean cachedModel) {
+        _lineaDeFactura.setCachedModel(cachedModel);
+    }
 
-	public void setEscapedModel(boolean escapedModel) {
-		_lineaDeFactura.setEscapedModel(escapedModel);
-	}
+    public boolean isEscapedModel() {
+        return _lineaDeFactura.isEscapedModel();
+    }
 
-	public java.io.Serializable getPrimaryKeyObj() {
-		return _lineaDeFactura.getPrimaryKeyObj();
-	}
+    public void setEscapedModel(boolean escapedModel) {
+        _lineaDeFactura.setEscapedModel(escapedModel);
+    }
 
-	public com.liferay.portlet.expando.model.ExpandoBridge getExpandoBridge() {
-		return _lineaDeFactura.getExpandoBridge();
-	}
+    public java.io.Serializable getPrimaryKeyObj() {
+        return _lineaDeFactura.getPrimaryKeyObj();
+    }
 
-	public void setExpandoBridgeAttributes(
-		com.liferay.portal.service.ServiceContext serviceContext) {
-		_lineaDeFactura.setExpandoBridgeAttributes(serviceContext);
-	}
+    public com.liferay.portlet.expando.model.ExpandoBridge getExpandoBridge() {
+        return _lineaDeFactura.getExpandoBridge();
+    }
 
-	public java.lang.Object clone() {
-		return _lineaDeFactura.clone();
-	}
+    public void setExpandoBridgeAttributes(
+        com.liferay.portal.service.ServiceContext serviceContext) {
+        _lineaDeFactura.setExpandoBridgeAttributes(serviceContext);
+    }
 
-	public int compareTo(LineaDeFactura lineaDeFactura) {
-		return _lineaDeFactura.compareTo(lineaDeFactura);
-	}
+    public java.lang.Object clone() {
+        return _lineaDeFactura.clone();
+    }
 
-	public int hashCode() {
-		return _lineaDeFactura.hashCode();
-	}
+    public int compareTo(es.emergya.negocio.model.LineaDeFactura lineaDeFactura) {
+        return _lineaDeFactura.compareTo(lineaDeFactura);
+    }
 
-	public java.lang.String toString() {
-		return _lineaDeFactura.toString();
-	}
+    public int hashCode() {
+        return _lineaDeFactura.hashCode();
+    }
 
-	public java.lang.String toXmlString() {
-		return _lineaDeFactura.toXmlString();
-	}
+    public java.lang.String toString() {
+        return _lineaDeFactura.toString();
+    }
 
-	public LineaDeFactura getWrappedLineaDeFactura() {
-		return _lineaDeFactura;
-	}
+    public java.lang.String toXmlString() {
+        return _lineaDeFactura.toXmlString();
+    }
 
-	private LineaDeFactura _lineaDeFactura;
+    public LineaDeFactura getWrappedLineaDeFactura() {
+        return _lineaDeFactura;
+    }
 }

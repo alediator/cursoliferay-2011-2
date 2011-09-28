@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2010 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package es.emergya.negocio.model.impl;
 
 import com.liferay.portal.kernel.bean.AutoEscapeBeanHandler;
@@ -51,212 +37,206 @@ import java.sql.Types;
  * @generated
  */
 public class FacturaModelImpl extends BaseModelImpl<Factura>
-	implements FacturaModel {
-	public static final String TABLE_NAME = "factura";
-	public static final Object[][] TABLE_COLUMNS = {
-			{ "facturaId", new Integer(Types.BIGINT) },
-			{ "nombreCliente", new Integer(Types.VARCHAR) },
-			{ "importeTotal", new Integer(Types.DOUBLE) },
-			{ "descripcion", new Integer(Types.VARCHAR) }
-		};
-	public static final String TABLE_SQL_CREATE = "create table factura (facturaId LONG not null primary key,nombreCliente VARCHAR(75) null,importeTotal DOUBLE,descripcion VARCHAR(75) null)";
-	public static final String TABLE_SQL_DROP = "drop table factura";
-	public static final String ORDER_BY_JPQL = " ORDER BY factura.nombreCliente ASC";
-	public static final String ORDER_BY_SQL = " ORDER BY factura.nombreCliente ASC";
-	public static final String DATA_SOURCE = "liferayDataSource";
-	public static final String SESSION_FACTORY = "liferaySessionFactory";
-	public static final String TX_MANAGER = "liferayTransactionManager";
-	public static final boolean ENTITY_CACHE_ENABLED = GetterUtil.getBoolean(com.liferay.util.service.ServiceProps.get(
-				"value.object.entity.cache.enabled.es.emergya.negocio.model.Factura"),
-			true);
-	public static final boolean FINDER_CACHE_ENABLED = GetterUtil.getBoolean(com.liferay.util.service.ServiceProps.get(
-				"value.object.finder.cache.enabled.es.emergya.negocio.model.Factura"),
-			true);
-	public static final long LOCK_EXPIRATION_TIME = GetterUtil.getLong(com.liferay.util.service.ServiceProps.get(
-				"lock.expiration.time.es.emergya.negocio.model.Factura"));
+    implements FacturaModel {
+    public static final String TABLE_NAME = "factura";
+    public static final Object[][] TABLE_COLUMNS = {
+            { "facturaId", new Integer(Types.BIGINT) },
+            { "nombreCliente", new Integer(Types.VARCHAR) },
+            { "importeTotal", new Integer(Types.DOUBLE) },
+            { "descripcion", new Integer(Types.VARCHAR) }
+        };
+    public static final String TABLE_SQL_CREATE = "create table factura (facturaId LONG not null primary key,nombreCliente VARCHAR(75) null,importeTotal DOUBLE,descripcion VARCHAR(75) null)";
+    public static final String TABLE_SQL_DROP = "drop table factura";
+    public static final String ORDER_BY_JPQL = " ORDER BY factura.nombreCliente ASC";
+    public static final String ORDER_BY_SQL = " ORDER BY factura.nombreCliente ASC";
+    public static final String DATA_SOURCE = "liferayDataSource";
+    public static final String SESSION_FACTORY = "liferaySessionFactory";
+    public static final String TX_MANAGER = "liferayTransactionManager";
+    public static final boolean ENTITY_CACHE_ENABLED = GetterUtil.getBoolean(com.liferay.util.service.ServiceProps.get(
+                "value.object.entity.cache.enabled.es.emergya.negocio.model.Factura"),
+            true);
+    public static final boolean FINDER_CACHE_ENABLED = GetterUtil.getBoolean(com.liferay.util.service.ServiceProps.get(
+                "value.object.finder.cache.enabled.es.emergya.negocio.model.Factura"),
+            true);
+    public static final long LOCK_EXPIRATION_TIME = GetterUtil.getLong(com.liferay.util.service.ServiceProps.get(
+                "lock.expiration.time.es.emergya.negocio.model.Factura"));
+    private long _facturaId;
+    private String _nombreCliente;
+    private double _importeTotal;
+    private String _descripcion;
+    private transient ExpandoBridge _expandoBridge;
 
-	public FacturaModelImpl() {
-	}
+    public FacturaModelImpl() {
+    }
 
-	public long getPrimaryKey() {
-		return _facturaId;
-	}
+    public long getPrimaryKey() {
+        return _facturaId;
+    }
 
-	public void setPrimaryKey(long pk) {
-		setFacturaId(pk);
-	}
+    public void setPrimaryKey(long pk) {
+        setFacturaId(pk);
+    }
 
-	public Serializable getPrimaryKeyObj() {
-		return new Long(_facturaId);
-	}
+    public Serializable getPrimaryKeyObj() {
+        return new Long(_facturaId);
+    }
 
-	public long getFacturaId() {
-		return _facturaId;
-	}
+    public long getFacturaId() {
+        return _facturaId;
+    }
 
-	public void setFacturaId(long facturaId) {
-		_facturaId = facturaId;
-	}
+    public void setFacturaId(long facturaId) {
+        _facturaId = facturaId;
+    }
 
-	public String getNombreCliente() {
-		if (_nombreCliente == null) {
-			return StringPool.BLANK;
-		}
-		else {
-			return _nombreCliente;
-		}
-	}
+    public String getNombreCliente() {
+        if (_nombreCliente == null) {
+            return StringPool.BLANK;
+        } else {
+            return _nombreCliente;
+        }
+    }
 
-	public void setNombreCliente(String nombreCliente) {
-		_nombreCliente = nombreCliente;
-	}
+    public void setNombreCliente(String nombreCliente) {
+        _nombreCliente = nombreCliente;
+    }
 
-	public double getImporteTotal() {
-		return _importeTotal;
-	}
+    public double getImporteTotal() {
+        return _importeTotal;
+    }
 
-	public void setImporteTotal(double importeTotal) {
-		_importeTotal = importeTotal;
-	}
+    public void setImporteTotal(double importeTotal) {
+        _importeTotal = importeTotal;
+    }
 
-	public String getDescripcion() {
-		if (_descripcion == null) {
-			return StringPool.BLANK;
-		}
-		else {
-			return _descripcion;
-		}
-	}
+    public String getDescripcion() {
+        if (_descripcion == null) {
+            return StringPool.BLANK;
+        } else {
+            return _descripcion;
+        }
+    }
 
-	public void setDescripcion(String descripcion) {
-		_descripcion = descripcion;
-	}
+    public void setDescripcion(String descripcion) {
+        _descripcion = descripcion;
+    }
 
-	public Factura toEscapedModel() {
-		if (isEscapedModel()) {
-			return (Factura)this;
-		}
-		else {
-			return (Factura)Proxy.newProxyInstance(Factura.class.getClassLoader(),
-				new Class[] { Factura.class }, new AutoEscapeBeanHandler(this));
-		}
-	}
+    public Factura toEscapedModel() {
+        if (isEscapedModel()) {
+            return (Factura) this;
+        } else {
+            return (Factura) Proxy.newProxyInstance(Factura.class.getClassLoader(),
+                new Class[] { Factura.class }, new AutoEscapeBeanHandler(this));
+        }
+    }
 
-	public ExpandoBridge getExpandoBridge() {
-		if (_expandoBridge == null) {
-			_expandoBridge = ExpandoBridgeFactoryUtil.getExpandoBridge(0,
-					Factura.class.getName(), getPrimaryKey());
-		}
+    public ExpandoBridge getExpandoBridge() {
+        if (_expandoBridge == null) {
+            _expandoBridge = ExpandoBridgeFactoryUtil.getExpandoBridge(0,
+                    Factura.class.getName(), getPrimaryKey());
+        }
 
-		return _expandoBridge;
-	}
+        return _expandoBridge;
+    }
 
-	public void setExpandoBridgeAttributes(ServiceContext serviceContext) {
-		getExpandoBridge().setAttributes(serviceContext);
-	}
+    public void setExpandoBridgeAttributes(ServiceContext serviceContext) {
+        getExpandoBridge().setAttributes(serviceContext);
+    }
 
-	public Object clone() {
-		FacturaImpl facturaImpl = new FacturaImpl();
+    public Object clone() {
+        FacturaImpl facturaImpl = new FacturaImpl();
 
-		facturaImpl.setFacturaId(getFacturaId());
+        facturaImpl.setFacturaId(getFacturaId());
 
-		facturaImpl.setNombreCliente(getNombreCliente());
+        facturaImpl.setNombreCliente(getNombreCliente());
 
-		facturaImpl.setImporteTotal(getImporteTotal());
+        facturaImpl.setImporteTotal(getImporteTotal());
 
-		facturaImpl.setDescripcion(getDescripcion());
+        facturaImpl.setDescripcion(getDescripcion());
 
-		return facturaImpl;
-	}
+        return facturaImpl;
+    }
 
-	public int compareTo(Factura factura) {
-		int value = 0;
+    public int compareTo(Factura factura) {
+        int value = 0;
 
-		value = getNombreCliente().compareTo(factura.getNombreCliente());
+        value = getNombreCliente().compareTo(factura.getNombreCliente());
 
-		if (value != 0) {
-			return value;
-		}
+        if (value != 0) {
+            return value;
+        }
 
-		return 0;
-	}
+        return 0;
+    }
 
-	public boolean equals(Object obj) {
-		if (obj == null) {
-			return false;
-		}
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
 
-		Factura factura = null;
+        Factura factura = null;
 
-		try {
-			factura = (Factura)obj;
-		}
-		catch (ClassCastException cce) {
-			return false;
-		}
+        try {
+            factura = (Factura) obj;
+        } catch (ClassCastException cce) {
+            return false;
+        }
 
-		long pk = factura.getPrimaryKey();
+        long pk = factura.getPrimaryKey();
 
-		if (getPrimaryKey() == pk) {
-			return true;
-		}
-		else {
-			return false;
-		}
-	}
+        if (getPrimaryKey() == pk) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-	public int hashCode() {
-		return (int)getPrimaryKey();
-	}
+    public int hashCode() {
+        return (int) getPrimaryKey();
+    }
 
-	public String toString() {
-		StringBundler sb = new StringBundler(9);
+    public String toString() {
+        StringBundler sb = new StringBundler(9);
 
-		sb.append("{facturaId=");
-		sb.append(getFacturaId());
-		sb.append(", nombreCliente=");
-		sb.append(getNombreCliente());
-		sb.append(", importeTotal=");
-		sb.append(getImporteTotal());
-		sb.append(", descripcion=");
-		sb.append(getDescripcion());
-		sb.append("}");
+        sb.append("{facturaId=");
+        sb.append(getFacturaId());
+        sb.append(", nombreCliente=");
+        sb.append(getNombreCliente());
+        sb.append(", importeTotal=");
+        sb.append(getImporteTotal());
+        sb.append(", descripcion=");
+        sb.append(getDescripcion());
+        sb.append("}");
 
-		return sb.toString();
-	}
+        return sb.toString();
+    }
 
-	public String toXmlString() {
-		StringBundler sb = new StringBundler(16);
+    public String toXmlString() {
+        StringBundler sb = new StringBundler(16);
 
-		sb.append("<model><model-name>");
-		sb.append("es.emergya.negocio.model.Factura");
-		sb.append("</model-name>");
+        sb.append("<model><model-name>");
+        sb.append("es.emergya.negocio.model.Factura");
+        sb.append("</model-name>");
 
-		sb.append(
-			"<column><column-name>facturaId</column-name><column-value><![CDATA[");
-		sb.append(getFacturaId());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>nombreCliente</column-name><column-value><![CDATA[");
-		sb.append(getNombreCliente());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>importeTotal</column-name><column-value><![CDATA[");
-		sb.append(getImporteTotal());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>descripcion</column-name><column-value><![CDATA[");
-		sb.append(getDescripcion());
-		sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>facturaId</column-name><column-value><![CDATA[");
+        sb.append(getFacturaId());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>nombreCliente</column-name><column-value><![CDATA[");
+        sb.append(getNombreCliente());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>importeTotal</column-name><column-value><![CDATA[");
+        sb.append(getImporteTotal());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>descripcion</column-name><column-value><![CDATA[");
+        sb.append(getDescripcion());
+        sb.append("]]></column-value></column>");
 
-		sb.append("</model>");
+        sb.append("</model>");
 
-		return sb.toString();
-	}
-
-	private long _facturaId;
-	private String _nombreCliente;
-	private double _importeTotal;
-	private String _descripcion;
-	private transient ExpandoBridge _expandoBridge;
+        return sb.toString();
+    }
 }

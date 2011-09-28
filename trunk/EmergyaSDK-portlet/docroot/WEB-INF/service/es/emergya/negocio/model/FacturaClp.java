@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2010 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package es.emergya.negocio.model;
 
 import com.liferay.portal.kernel.bean.AutoEscapeBeanHandler;
@@ -22,165 +8,160 @@ import java.io.Serializable;
 
 import java.lang.reflect.Proxy;
 
-/**
- * @author adiaz
- */
+
 public class FacturaClp extends BaseModelImpl<Factura> implements Factura {
-	public FacturaClp() {
-	}
+    private long _facturaId;
+    private String _nombreCliente;
+    private double _importeTotal;
+    private String _descripcion;
 
-	public long getPrimaryKey() {
-		return _facturaId;
-	}
+    public FacturaClp() {
+    }
 
-	public void setPrimaryKey(long pk) {
-		setFacturaId(pk);
-	}
+    public long getPrimaryKey() {
+        return _facturaId;
+    }
 
-	public Serializable getPrimaryKeyObj() {
-		return new Long(_facturaId);
-	}
+    public void setPrimaryKey(long pk) {
+        setFacturaId(pk);
+    }
 
-	public long getFacturaId() {
-		return _facturaId;
-	}
+    public Serializable getPrimaryKeyObj() {
+        return new Long(_facturaId);
+    }
 
-	public void setFacturaId(long facturaId) {
-		_facturaId = facturaId;
-	}
+    public long getFacturaId() {
+        return _facturaId;
+    }
 
-	public String getNombreCliente() {
-		return _nombreCliente;
-	}
+    public void setFacturaId(long facturaId) {
+        _facturaId = facturaId;
+    }
 
-	public void setNombreCliente(String nombreCliente) {
-		_nombreCliente = nombreCliente;
-	}
+    public String getNombreCliente() {
+        return _nombreCliente;
+    }
 
-	public double getImporteTotal() {
-		return _importeTotal;
-	}
+    public void setNombreCliente(String nombreCliente) {
+        _nombreCliente = nombreCliente;
+    }
 
-	public void setImporteTotal(double importeTotal) {
-		_importeTotal = importeTotal;
-	}
+    public double getImporteTotal() {
+        return _importeTotal;
+    }
 
-	public String getDescripcion() {
-		return _descripcion;
-	}
+    public void setImporteTotal(double importeTotal) {
+        _importeTotal = importeTotal;
+    }
 
-	public void setDescripcion(String descripcion) {
-		_descripcion = descripcion;
-	}
+    public String getDescripcion() {
+        return _descripcion;
+    }
 
-	public Factura toEscapedModel() {
-		if (isEscapedModel()) {
-			return this;
-		}
-		else {
-			return (Factura)Proxy.newProxyInstance(Factura.class.getClassLoader(),
-				new Class[] { Factura.class }, new AutoEscapeBeanHandler(this));
-		}
-	}
+    public void setDescripcion(String descripcion) {
+        _descripcion = descripcion;
+    }
 
-	public Object clone() {
-		FacturaClp clone = new FacturaClp();
+    public Factura toEscapedModel() {
+        if (isEscapedModel()) {
+            return this;
+        } else {
+            return (Factura) Proxy.newProxyInstance(Factura.class.getClassLoader(),
+                new Class[] { Factura.class }, new AutoEscapeBeanHandler(this));
+        }
+    }
 
-		clone.setFacturaId(getFacturaId());
-		clone.setNombreCliente(getNombreCliente());
-		clone.setImporteTotal(getImporteTotal());
-		clone.setDescripcion(getDescripcion());
+    public Object clone() {
+        FacturaClp clone = new FacturaClp();
 
-		return clone;
-	}
+        clone.setFacturaId(getFacturaId());
+        clone.setNombreCliente(getNombreCliente());
+        clone.setImporteTotal(getImporteTotal());
+        clone.setDescripcion(getDescripcion());
 
-	public int compareTo(Factura factura) {
-		int value = 0;
+        return clone;
+    }
 
-		value = getNombreCliente().compareTo(factura.getNombreCliente());
+    public int compareTo(Factura factura) {
+        int value = 0;
 
-		if (value != 0) {
-			return value;
-		}
+        value = getNombreCliente().compareTo(factura.getNombreCliente());
 
-		return 0;
-	}
+        if (value != 0) {
+            return value;
+        }
 
-	public boolean equals(Object obj) {
-		if (obj == null) {
-			return false;
-		}
+        return 0;
+    }
 
-		FacturaClp factura = null;
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
 
-		try {
-			factura = (FacturaClp)obj;
-		}
-		catch (ClassCastException cce) {
-			return false;
-		}
+        FacturaClp factura = null;
 
-		long pk = factura.getPrimaryKey();
+        try {
+            factura = (FacturaClp) obj;
+        } catch (ClassCastException cce) {
+            return false;
+        }
 
-		if (getPrimaryKey() == pk) {
-			return true;
-		}
-		else {
-			return false;
-		}
-	}
+        long pk = factura.getPrimaryKey();
 
-	public int hashCode() {
-		return (int)getPrimaryKey();
-	}
+        if (getPrimaryKey() == pk) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-	public String toString() {
-		StringBundler sb = new StringBundler(9);
+    public int hashCode() {
+        return (int) getPrimaryKey();
+    }
 
-		sb.append("{facturaId=");
-		sb.append(getFacturaId());
-		sb.append(", nombreCliente=");
-		sb.append(getNombreCliente());
-		sb.append(", importeTotal=");
-		sb.append(getImporteTotal());
-		sb.append(", descripcion=");
-		sb.append(getDescripcion());
-		sb.append("}");
+    public String toString() {
+        StringBundler sb = new StringBundler(9);
 
-		return sb.toString();
-	}
+        sb.append("{facturaId=");
+        sb.append(getFacturaId());
+        sb.append(", nombreCliente=");
+        sb.append(getNombreCliente());
+        sb.append(", importeTotal=");
+        sb.append(getImporteTotal());
+        sb.append(", descripcion=");
+        sb.append(getDescripcion());
+        sb.append("}");
 
-	public String toXmlString() {
-		StringBundler sb = new StringBundler(16);
+        return sb.toString();
+    }
 
-		sb.append("<model><model-name>");
-		sb.append("es.emergya.negocio.model.Factura");
-		sb.append("</model-name>");
+    public String toXmlString() {
+        StringBundler sb = new StringBundler(16);
 
-		sb.append(
-			"<column><column-name>facturaId</column-name><column-value><![CDATA[");
-		sb.append(getFacturaId());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>nombreCliente</column-name><column-value><![CDATA[");
-		sb.append(getNombreCliente());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>importeTotal</column-name><column-value><![CDATA[");
-		sb.append(getImporteTotal());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>descripcion</column-name><column-value><![CDATA[");
-		sb.append(getDescripcion());
-		sb.append("]]></column-value></column>");
+        sb.append("<model><model-name>");
+        sb.append("es.emergya.negocio.model.Factura");
+        sb.append("</model-name>");
 
-		sb.append("</model>");
+        sb.append(
+            "<column><column-name>facturaId</column-name><column-value><![CDATA[");
+        sb.append(getFacturaId());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>nombreCliente</column-name><column-value><![CDATA[");
+        sb.append(getNombreCliente());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>importeTotal</column-name><column-value><![CDATA[");
+        sb.append(getImporteTotal());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>descripcion</column-name><column-value><![CDATA[");
+        sb.append(getDescripcion());
+        sb.append("]]></column-value></column>");
 
-		return sb.toString();
-	}
+        sb.append("</model>");
 
-	private long _facturaId;
-	private String _nombreCliente;
-	private double _importeTotal;
-	private String _descripcion;
+        return sb.toString();
+    }
 }

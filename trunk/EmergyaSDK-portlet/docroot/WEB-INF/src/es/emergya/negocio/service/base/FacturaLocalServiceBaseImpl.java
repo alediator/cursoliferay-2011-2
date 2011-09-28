@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2010 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package es.emergya.negocio.service.base;
 
 import com.liferay.counter.service.CounterLocalService;
@@ -57,424 +43,423 @@ import javax.sql.DataSource;
  * @generated
  */
 public abstract class FacturaLocalServiceBaseImpl implements FacturaLocalService {
-	/**
-	 * Adds the factura to the database. Also notifies the appropriate model listeners.
-	 *
-	 * @param factura the factura to add
-	 * @return the factura that was added
-	 * @throws SystemException if a system exception occurred
-	 */
-	public Factura addFactura(Factura factura) throws SystemException {
-		factura.setNew(true);
+    @BeanReference(type = FacturaLocalService.class)
+    protected FacturaLocalService facturaLocalService;
+    @BeanReference(type = FacturaPersistence.class)
+    protected FacturaPersistence facturaPersistence;
+    @BeanReference(type = LineaDeFacturaLocalService.class)
+    protected LineaDeFacturaLocalService lineaDeFacturaLocalService;
+    @BeanReference(type = LineaDeFacturaPersistence.class)
+    protected LineaDeFacturaPersistence lineaDeFacturaPersistence;
+    @BeanReference(type = CounterLocalService.class)
+    protected CounterLocalService counterLocalService;
+    @BeanReference(type = ResourceLocalService.class)
+    protected ResourceLocalService resourceLocalService;
+    @BeanReference(type = ResourceService.class)
+    protected ResourceService resourceService;
+    @BeanReference(type = ResourcePersistence.class)
+    protected ResourcePersistence resourcePersistence;
+    @BeanReference(type = UserLocalService.class)
+    protected UserLocalService userLocalService;
+    @BeanReference(type = UserService.class)
+    protected UserService userService;
+    @BeanReference(type = UserPersistence.class)
+    protected UserPersistence userPersistence;
 
-		return facturaPersistence.update(factura, false);
-	}
+    /**
+     * Adds the factura to the database. Also notifies the appropriate model listeners.
+     *
+     * @param factura the factura to add
+     * @return the factura that was added
+     * @throws SystemException if a system exception occurred
+     */
+    public Factura addFactura(Factura factura) throws SystemException {
+        factura.setNew(true);
 
-	/**
-	 * Creates a new factura with the primary key. Does not add the factura to the database.
-	 *
-	 * @param facturaId the primary key for the new factura
-	 * @return the new factura
-	 */
-	public Factura createFactura(long facturaId) {
-		return facturaPersistence.create(facturaId);
-	}
+        return facturaPersistence.update(factura, false);
+    }
 
-	/**
-	 * Deletes the factura with the primary key from the database. Also notifies the appropriate model listeners.
-	 *
-	 * @param facturaId the primary key of the factura to delete
-	 * @throws PortalException if a factura with the primary key could not be found
-	 * @throws SystemException if a system exception occurred
-	 */
-	public void deleteFactura(long facturaId)
-		throws PortalException, SystemException {
-		facturaPersistence.remove(facturaId);
-	}
+    /**
+     * Creates a new factura with the primary key. Does not add the factura to the database.
+     *
+     * @param facturaId the primary key for the new factura
+     * @return the new factura
+     */
+    public Factura createFactura(long facturaId) {
+        return facturaPersistence.create(facturaId);
+    }
 
-	/**
-	 * Deletes the factura from the database. Also notifies the appropriate model listeners.
-	 *
-	 * @param factura the factura to delete
-	 * @throws SystemException if a system exception occurred
-	 */
-	public void deleteFactura(Factura factura) throws SystemException {
-		facturaPersistence.remove(factura);
-	}
+    /**
+     * Deletes the factura with the primary key from the database. Also notifies the appropriate model listeners.
+     *
+     * @param facturaId the primary key of the factura to delete
+     * @throws PortalException if a factura with the primary key could not be found
+     * @throws SystemException if a system exception occurred
+     */
+    public void deleteFactura(long facturaId)
+        throws PortalException, SystemException {
+        facturaPersistence.remove(facturaId);
+    }
 
-	/**
-	 * Performs a dynamic query on the database and returns the matching rows.
-	 *
-	 * @param dynamicQuery the dynamic query to search with
-	 * @return the matching rows
-	 * @throws SystemException if a system exception occurred
-	 */
-	@SuppressWarnings("rawtypes")
-	public List dynamicQuery(DynamicQuery dynamicQuery)
-		throws SystemException {
-		return facturaPersistence.findWithDynamicQuery(dynamicQuery);
-	}
+    /**
+     * Deletes the factura from the database. Also notifies the appropriate model listeners.
+     *
+     * @param factura the factura to delete
+     * @throws SystemException if a system exception occurred
+     */
+    public void deleteFactura(Factura factura) throws SystemException {
+        facturaPersistence.remove(factura);
+    }
 
-	/**
-	 * Performs a dynamic query on the database and returns a range of the matching rows.
-	 *
-	 * <p>
-	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set.
-	 * </p>
-	 *
-	 * @param dynamicQuery the dynamic query to search with
-	 * @param start the lower bound of the range of model instances to return
-	 * @param end the upper bound of the range of model instances to return (not inclusive)
-	 * @return the range of matching rows
-	 * @throws SystemException if a system exception occurred
-	 */
-	@SuppressWarnings("rawtypes")
-	public List dynamicQuery(DynamicQuery dynamicQuery, int start, int end)
-		throws SystemException {
-		return facturaPersistence.findWithDynamicQuery(dynamicQuery, start, end);
-	}
+    /**
+     * Performs a dynamic query on the database and returns the matching rows.
+     *
+     * @param dynamicQuery the dynamic query to search with
+     * @return the matching rows
+     * @throws SystemException if a system exception occurred
+     */
+    @SuppressWarnings("rawtypes")
+    public List dynamicQuery(DynamicQuery dynamicQuery)
+        throws SystemException {
+        return facturaPersistence.findWithDynamicQuery(dynamicQuery);
+    }
 
-	/**
-	 * Performs a dynamic query on the database and returns an ordered range of the matching rows.
-	 *
-	 * <p>
-	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set.
-	 * </p>
-	 *
-	 * @param dynamicQuery the dynamic query to search with
-	 * @param start the lower bound of the range of model instances to return
-	 * @param end the upper bound of the range of model instances to return (not inclusive)
-	 * @param orderByComparator the comparator to order the results by
-	 * @return the ordered range of matching rows
-	 * @throws SystemException if a system exception occurred
-	 */
-	@SuppressWarnings("rawtypes")
-	public List dynamicQuery(DynamicQuery dynamicQuery, int start, int end,
-		OrderByComparator orderByComparator) throws SystemException {
-		return facturaPersistence.findWithDynamicQuery(dynamicQuery, start,
-			end, orderByComparator);
-	}
+    /**
+     * Performs a dynamic query on the database and returns a range of the matching rows.
+     *
+     * <p>
+     * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set.
+     * </p>
+     *
+     * @param dynamicQuery the dynamic query to search with
+     * @param start the lower bound of the range of model instances to return
+     * @param end the upper bound of the range of model instances to return (not inclusive)
+     * @return the range of matching rows
+     * @throws SystemException if a system exception occurred
+     */
+    @SuppressWarnings("rawtypes")
+    public List dynamicQuery(DynamicQuery dynamicQuery, int start, int end)
+        throws SystemException {
+        return facturaPersistence.findWithDynamicQuery(dynamicQuery, start, end);
+    }
 
-	/**
-	 * Counts the number of rows that match the dynamic query.
-	 *
-	 * @param dynamicQuery the dynamic query to search with
-	 * @return the number of rows that match the dynamic query
-	 * @throws SystemException if a system exception occurred
-	 */
-	public long dynamicQueryCount(DynamicQuery dynamicQuery)
-		throws SystemException {
-		return facturaPersistence.countWithDynamicQuery(dynamicQuery);
-	}
+    /**
+     * Performs a dynamic query on the database and returns an ordered range of the matching rows.
+     *
+     * <p>
+     * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set.
+     * </p>
+     *
+     * @param dynamicQuery the dynamic query to search with
+     * @param start the lower bound of the range of model instances to return
+     * @param end the upper bound of the range of model instances to return (not inclusive)
+     * @param orderByComparator the comparator to order the results by
+     * @return the ordered range of matching rows
+     * @throws SystemException if a system exception occurred
+     */
+    @SuppressWarnings("rawtypes")
+    public List dynamicQuery(DynamicQuery dynamicQuery, int start, int end,
+        OrderByComparator orderByComparator) throws SystemException {
+        return facturaPersistence.findWithDynamicQuery(dynamicQuery, start,
+            end, orderByComparator);
+    }
 
-	/**
-	 * Gets the factura with the primary key.
-	 *
-	 * @param facturaId the primary key of the factura to get
-	 * @return the factura
-	 * @throws PortalException if a factura with the primary key could not be found
-	 * @throws SystemException if a system exception occurred
-	 */
-	public Factura getFactura(long facturaId)
-		throws PortalException, SystemException {
-		return facturaPersistence.findByPrimaryKey(facturaId);
-	}
+    /**
+     * Counts the number of rows that match the dynamic query.
+     *
+     * @param dynamicQuery the dynamic query to search with
+     * @return the number of rows that match the dynamic query
+     * @throws SystemException if a system exception occurred
+     */
+    public long dynamicQueryCount(DynamicQuery dynamicQuery)
+        throws SystemException {
+        return facturaPersistence.countWithDynamicQuery(dynamicQuery);
+    }
 
-	/**
-	 * Gets a range of all the facturas.
-	 *
-	 * <p>
-	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set.
-	 * </p>
-	 *
-	 * @param start the lower bound of the range of facturas to return
-	 * @param end the upper bound of the range of facturas to return (not inclusive)
-	 * @return the range of facturas
-	 * @throws SystemException if a system exception occurred
-	 */
-	public List<Factura> getFacturas(int start, int end)
-		throws SystemException {
-		return facturaPersistence.findAll(start, end);
-	}
+    /**
+     * Gets the factura with the primary key.
+     *
+     * @param facturaId the primary key of the factura to get
+     * @return the factura
+     * @throws PortalException if a factura with the primary key could not be found
+     * @throws SystemException if a system exception occurred
+     */
+    public Factura getFactura(long facturaId)
+        throws PortalException, SystemException {
+        return facturaPersistence.findByPrimaryKey(facturaId);
+    }
 
-	/**
-	 * Gets the number of facturas.
-	 *
-	 * @return the number of facturas
-	 * @throws SystemException if a system exception occurred
-	 */
-	public int getFacturasCount() throws SystemException {
-		return facturaPersistence.countAll();
-	}
+    /**
+     * Gets a range of all the facturas.
+     *
+     * <p>
+     * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set.
+     * </p>
+     *
+     * @param start the lower bound of the range of facturas to return
+     * @param end the upper bound of the range of facturas to return (not inclusive)
+     * @return the range of facturas
+     * @throws SystemException if a system exception occurred
+     */
+    public List<Factura> getFacturas(int start, int end)
+        throws SystemException {
+        return facturaPersistence.findAll(start, end);
+    }
 
-	/**
-	 * Updates the factura in the database. Also notifies the appropriate model listeners.
-	 *
-	 * @param factura the factura to update
-	 * @return the factura that was updated
-	 * @throws SystemException if a system exception occurred
-	 */
-	public Factura updateFactura(Factura factura) throws SystemException {
-		factura.setNew(false);
+    /**
+     * Gets the number of facturas.
+     *
+     * @return the number of facturas
+     * @throws SystemException if a system exception occurred
+     */
+    public int getFacturasCount() throws SystemException {
+        return facturaPersistence.countAll();
+    }
 
-		return facturaPersistence.update(factura, true);
-	}
+    /**
+     * Updates the factura in the database. Also notifies the appropriate model listeners.
+     *
+     * @param factura the factura to update
+     * @return the factura that was updated
+     * @throws SystemException if a system exception occurred
+     */
+    public Factura updateFactura(Factura factura) throws SystemException {
+        factura.setNew(false);
 
-	/**
-	 * Updates the factura in the database. Also notifies the appropriate model listeners.
-	 *
-	 * @param factura the factura to update
-	 * @param merge whether to merge the factura with the current session. See {@link com.liferay.portal.service.persistence.BatchSession#update(com.liferay.portal.kernel.dao.orm.Session, com.liferay.portal.model.BaseModel, boolean)} for an explanation.
-	 * @return the factura that was updated
-	 * @throws SystemException if a system exception occurred
-	 */
-	public Factura updateFactura(Factura factura, boolean merge)
-		throws SystemException {
-		factura.setNew(false);
+        return facturaPersistence.update(factura, true);
+    }
 
-		return facturaPersistence.update(factura, merge);
-	}
+    /**
+     * Updates the factura in the database. Also notifies the appropriate model listeners.
+     *
+     * @param factura the factura to update
+     * @param merge whether to merge the factura with the current session. See {@link com.liferay.portal.service.persistence.BatchSession#update(com.liferay.portal.kernel.dao.orm.Session, com.liferay.portal.model.BaseModel, boolean)} for an explanation.
+     * @return the factura that was updated
+     * @throws SystemException if a system exception occurred
+     */
+    public Factura updateFactura(Factura factura, boolean merge)
+        throws SystemException {
+        factura.setNew(false);
 
-	/**
-	 * Gets the factura local service.
-	 *
-	 * @return the factura local service
-	 */
-	public FacturaLocalService getFacturaLocalService() {
-		return facturaLocalService;
-	}
+        return facturaPersistence.update(factura, merge);
+    }
 
-	/**
-	 * Sets the factura local service.
-	 *
-	 * @param facturaLocalService the factura local service
-	 */
-	public void setFacturaLocalService(FacturaLocalService facturaLocalService) {
-		this.facturaLocalService = facturaLocalService;
-	}
+    /**
+     * Gets the factura local service.
+     *
+     * @return the factura local service
+     */
+    public FacturaLocalService getFacturaLocalService() {
+        return facturaLocalService;
+    }
 
-	/**
-	 * Gets the factura persistence.
-	 *
-	 * @return the factura persistence
-	 */
-	public FacturaPersistence getFacturaPersistence() {
-		return facturaPersistence;
-	}
+    /**
+     * Sets the factura local service.
+     *
+     * @param facturaLocalService the factura local service
+     */
+    public void setFacturaLocalService(FacturaLocalService facturaLocalService) {
+        this.facturaLocalService = facturaLocalService;
+    }
 
-	/**
-	 * Sets the factura persistence.
-	 *
-	 * @param facturaPersistence the factura persistence
-	 */
-	public void setFacturaPersistence(FacturaPersistence facturaPersistence) {
-		this.facturaPersistence = facturaPersistence;
-	}
+    /**
+     * Gets the factura persistence.
+     *
+     * @return the factura persistence
+     */
+    public FacturaPersistence getFacturaPersistence() {
+        return facturaPersistence;
+    }
 
-	/**
-	 * Gets the linea de factura local service.
-	 *
-	 * @return the linea de factura local service
-	 */
-	public LineaDeFacturaLocalService getLineaDeFacturaLocalService() {
-		return lineaDeFacturaLocalService;
-	}
+    /**
+     * Sets the factura persistence.
+     *
+     * @param facturaPersistence the factura persistence
+     */
+    public void setFacturaPersistence(FacturaPersistence facturaPersistence) {
+        this.facturaPersistence = facturaPersistence;
+    }
 
-	/**
-	 * Sets the linea de factura local service.
-	 *
-	 * @param lineaDeFacturaLocalService the linea de factura local service
-	 */
-	public void setLineaDeFacturaLocalService(
-		LineaDeFacturaLocalService lineaDeFacturaLocalService) {
-		this.lineaDeFacturaLocalService = lineaDeFacturaLocalService;
-	}
+    /**
+     * Gets the linea de factura local service.
+     *
+     * @return the linea de factura local service
+     */
+    public LineaDeFacturaLocalService getLineaDeFacturaLocalService() {
+        return lineaDeFacturaLocalService;
+    }
 
-	/**
-	 * Gets the linea de factura persistence.
-	 *
-	 * @return the linea de factura persistence
-	 */
-	public LineaDeFacturaPersistence getLineaDeFacturaPersistence() {
-		return lineaDeFacturaPersistence;
-	}
+    /**
+     * Sets the linea de factura local service.
+     *
+     * @param lineaDeFacturaLocalService the linea de factura local service
+     */
+    public void setLineaDeFacturaLocalService(
+        LineaDeFacturaLocalService lineaDeFacturaLocalService) {
+        this.lineaDeFacturaLocalService = lineaDeFacturaLocalService;
+    }
 
-	/**
-	 * Sets the linea de factura persistence.
-	 *
-	 * @param lineaDeFacturaPersistence the linea de factura persistence
-	 */
-	public void setLineaDeFacturaPersistence(
-		LineaDeFacturaPersistence lineaDeFacturaPersistence) {
-		this.lineaDeFacturaPersistence = lineaDeFacturaPersistence;
-	}
+    /**
+     * Gets the linea de factura persistence.
+     *
+     * @return the linea de factura persistence
+     */
+    public LineaDeFacturaPersistence getLineaDeFacturaPersistence() {
+        return lineaDeFacturaPersistence;
+    }
 
-	/**
-	 * Gets the counter local service.
-	 *
-	 * @return the counter local service
-	 */
-	public CounterLocalService getCounterLocalService() {
-		return counterLocalService;
-	}
+    /**
+     * Sets the linea de factura persistence.
+     *
+     * @param lineaDeFacturaPersistence the linea de factura persistence
+     */
+    public void setLineaDeFacturaPersistence(
+        LineaDeFacturaPersistence lineaDeFacturaPersistence) {
+        this.lineaDeFacturaPersistence = lineaDeFacturaPersistence;
+    }
 
-	/**
-	 * Sets the counter local service.
-	 *
-	 * @param counterLocalService the counter local service
-	 */
-	public void setCounterLocalService(CounterLocalService counterLocalService) {
-		this.counterLocalService = counterLocalService;
-	}
+    /**
+     * Gets the counter local service.
+     *
+     * @return the counter local service
+     */
+    public CounterLocalService getCounterLocalService() {
+        return counterLocalService;
+    }
 
-	/**
-	 * Gets the resource local service.
-	 *
-	 * @return the resource local service
-	 */
-	public ResourceLocalService getResourceLocalService() {
-		return resourceLocalService;
-	}
+    /**
+     * Sets the counter local service.
+     *
+     * @param counterLocalService the counter local service
+     */
+    public void setCounterLocalService(CounterLocalService counterLocalService) {
+        this.counterLocalService = counterLocalService;
+    }
 
-	/**
-	 * Sets the resource local service.
-	 *
-	 * @param resourceLocalService the resource local service
-	 */
-	public void setResourceLocalService(
-		ResourceLocalService resourceLocalService) {
-		this.resourceLocalService = resourceLocalService;
-	}
+    /**
+     * Gets the resource local service.
+     *
+     * @return the resource local service
+     */
+    public ResourceLocalService getResourceLocalService() {
+        return resourceLocalService;
+    }
 
-	/**
-	 * Gets the resource remote service.
-	 *
-	 * @return the resource remote service
-	 */
-	public ResourceService getResourceService() {
-		return resourceService;
-	}
+    /**
+     * Sets the resource local service.
+     *
+     * @param resourceLocalService the resource local service
+     */
+    public void setResourceLocalService(
+        ResourceLocalService resourceLocalService) {
+        this.resourceLocalService = resourceLocalService;
+    }
 
-	/**
-	 * Sets the resource remote service.
-	 *
-	 * @param resourceService the resource remote service
-	 */
-	public void setResourceService(ResourceService resourceService) {
-		this.resourceService = resourceService;
-	}
+    /**
+     * Gets the resource remote service.
+     *
+     * @return the resource remote service
+     */
+    public ResourceService getResourceService() {
+        return resourceService;
+    }
 
-	/**
-	 * Gets the resource persistence.
-	 *
-	 * @return the resource persistence
-	 */
-	public ResourcePersistence getResourcePersistence() {
-		return resourcePersistence;
-	}
+    /**
+     * Sets the resource remote service.
+     *
+     * @param resourceService the resource remote service
+     */
+    public void setResourceService(ResourceService resourceService) {
+        this.resourceService = resourceService;
+    }
 
-	/**
-	 * Sets the resource persistence.
-	 *
-	 * @param resourcePersistence the resource persistence
-	 */
-	public void setResourcePersistence(ResourcePersistence resourcePersistence) {
-		this.resourcePersistence = resourcePersistence;
-	}
+    /**
+     * Gets the resource persistence.
+     *
+     * @return the resource persistence
+     */
+    public ResourcePersistence getResourcePersistence() {
+        return resourcePersistence;
+    }
 
-	/**
-	 * Gets the user local service.
-	 *
-	 * @return the user local service
-	 */
-	public UserLocalService getUserLocalService() {
-		return userLocalService;
-	}
+    /**
+     * Sets the resource persistence.
+     *
+     * @param resourcePersistence the resource persistence
+     */
+    public void setResourcePersistence(ResourcePersistence resourcePersistence) {
+        this.resourcePersistence = resourcePersistence;
+    }
 
-	/**
-	 * Sets the user local service.
-	 *
-	 * @param userLocalService the user local service
-	 */
-	public void setUserLocalService(UserLocalService userLocalService) {
-		this.userLocalService = userLocalService;
-	}
+    /**
+     * Gets the user local service.
+     *
+     * @return the user local service
+     */
+    public UserLocalService getUserLocalService() {
+        return userLocalService;
+    }
 
-	/**
-	 * Gets the user remote service.
-	 *
-	 * @return the user remote service
-	 */
-	public UserService getUserService() {
-		return userService;
-	}
+    /**
+     * Sets the user local service.
+     *
+     * @param userLocalService the user local service
+     */
+    public void setUserLocalService(UserLocalService userLocalService) {
+        this.userLocalService = userLocalService;
+    }
 
-	/**
-	 * Sets the user remote service.
-	 *
-	 * @param userService the user remote service
-	 */
-	public void setUserService(UserService userService) {
-		this.userService = userService;
-	}
+    /**
+     * Gets the user remote service.
+     *
+     * @return the user remote service
+     */
+    public UserService getUserService() {
+        return userService;
+    }
 
-	/**
-	 * Gets the user persistence.
-	 *
-	 * @return the user persistence
-	 */
-	public UserPersistence getUserPersistence() {
-		return userPersistence;
-	}
+    /**
+     * Sets the user remote service.
+     *
+     * @param userService the user remote service
+     */
+    public void setUserService(UserService userService) {
+        this.userService = userService;
+    }
 
-	/**
-	 * Sets the user persistence.
-	 *
-	 * @param userPersistence the user persistence
-	 */
-	public void setUserPersistence(UserPersistence userPersistence) {
-		this.userPersistence = userPersistence;
-	}
+    /**
+     * Gets the user persistence.
+     *
+     * @return the user persistence
+     */
+    public UserPersistence getUserPersistence() {
+        return userPersistence;
+    }
 
-	/**
-	 * Performs an SQL query.
-	 *
-	 * @param sql the sql query to perform
-	 */
-	protected void runSQL(String sql) throws SystemException {
-		try {
-			DataSource dataSource = facturaPersistence.getDataSource();
+    /**
+     * Sets the user persistence.
+     *
+     * @param userPersistence the user persistence
+     */
+    public void setUserPersistence(UserPersistence userPersistence) {
+        this.userPersistence = userPersistence;
+    }
 
-			SqlUpdate sqlUpdate = SqlUpdateFactoryUtil.getSqlUpdate(dataSource,
-					sql, new int[0]);
+    /**
+     * Performs an SQL query.
+     *
+     * @param sql the sql query to perform
+     */
+    protected void runSQL(String sql) throws SystemException {
+        try {
+            DataSource dataSource = facturaPersistence.getDataSource();
 
-			sqlUpdate.update();
-		}
-		catch (Exception e) {
-			throw new SystemException(e);
-		}
-	}
+            SqlUpdate sqlUpdate = SqlUpdateFactoryUtil.getSqlUpdate(dataSource,
+                    sql, new int[0]);
 
-	@BeanReference(type = FacturaLocalService.class)
-	protected FacturaLocalService facturaLocalService;
-	@BeanReference(type = FacturaPersistence.class)
-	protected FacturaPersistence facturaPersistence;
-	@BeanReference(type = LineaDeFacturaLocalService.class)
-	protected LineaDeFacturaLocalService lineaDeFacturaLocalService;
-	@BeanReference(type = LineaDeFacturaPersistence.class)
-	protected LineaDeFacturaPersistence lineaDeFacturaPersistence;
-	@BeanReference(type = CounterLocalService.class)
-	protected CounterLocalService counterLocalService;
-	@BeanReference(type = ResourceLocalService.class)
-	protected ResourceLocalService resourceLocalService;
-	@BeanReference(type = ResourceService.class)
-	protected ResourceService resourceService;
-	@BeanReference(type = ResourcePersistence.class)
-	protected ResourcePersistence resourcePersistence;
-	@BeanReference(type = UserLocalService.class)
-	protected UserLocalService userLocalService;
-	@BeanReference(type = UserService.class)
-	protected UserService userService;
-	@BeanReference(type = UserPersistence.class)
-	protected UserPersistence userPersistence;
+            sqlUpdate.update();
+        } catch (Exception e) {
+            throw new SystemException(e);
+        }
+    }
 }

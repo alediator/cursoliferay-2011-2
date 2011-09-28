@@ -1,17 +1,3 @@
-/**
- * Copyright (c) 2000-2010 Liferay, Inc. All rights reserved.
- *
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- *
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- */
-
 package es.emergya.negocio.model;
 
 import com.liferay.portal.kernel.annotation.AutoEscape;
@@ -40,110 +26,110 @@ import java.io.Serializable;
  * @generated
  */
 public interface LineaDeFacturaModel extends BaseModel<LineaDeFactura> {
-	/**
-	 * Gets the primary key of this linea de factura.
-	 *
-	 * @return the primary key of this linea de factura
-	 */
-	public long getPrimaryKey();
+    /**
+     * Gets the primary key of this linea de factura.
+     *
+     * @return the primary key of this linea de factura
+     */
+    public long getPrimaryKey();
 
-	/**
-	 * Sets the primary key of this linea de factura
-	 *
-	 * @param pk the primary key of this linea de factura
-	 */
-	public void setPrimaryKey(long pk);
+    /**
+     * Sets the primary key of this linea de factura
+     *
+     * @param pk the primary key of this linea de factura
+     */
+    public void setPrimaryKey(long pk);
 
-	/**
-	 * Gets the linea deactura id of this linea de factura.
-	 *
-	 * @return the linea deactura id of this linea de factura
-	 */
-	public long getLineaDeacturaId();
+    /**
+     * Gets the linea deactura id of this linea de factura.
+     *
+     * @return the linea deactura id of this linea de factura
+     */
+    public long getLineaDeacturaId();
 
-	/**
-	 * Sets the linea deactura id of this linea de factura.
-	 *
-	 * @param lineaDeacturaId the linea deactura id of this linea de factura
-	 */
-	public void setLineaDeacturaId(long lineaDeacturaId);
+    /**
+     * Sets the linea deactura id of this linea de factura.
+     *
+     * @param lineaDeacturaId the linea deactura id of this linea de factura
+     */
+    public void setLineaDeacturaId(long lineaDeacturaId);
 
-	/**
-	 * Gets the detalle of this linea de factura.
-	 *
-	 * @return the detalle of this linea de factura
-	 */
-	@AutoEscape
-	public String getDetalle();
+    /**
+     * Gets the detalle of this linea de factura.
+     *
+     * @return the detalle of this linea de factura
+     */
+    @AutoEscape
+    public String getDetalle();
 
-	/**
-	 * Sets the detalle of this linea de factura.
-	 *
-	 * @param detalle the detalle of this linea de factura
-	 */
-	public void setDetalle(String detalle);
+    /**
+     * Sets the detalle of this linea de factura.
+     *
+     * @param detalle the detalle of this linea de factura
+     */
+    public void setDetalle(String detalle);
 
-	/**
-	 * Gets the importe of this linea de factura.
-	 *
-	 * @return the importe of this linea de factura
-	 */
-	public double getImporte();
+    /**
+     * Gets the importe of this linea de factura.
+     *
+     * @return the importe of this linea de factura
+     */
+    public double getImporte();
 
-	/**
-	 * Sets the importe of this linea de factura.
-	 *
-	 * @param importe the importe of this linea de factura
-	 */
-	public void setImporte(double importe);
+    /**
+     * Sets the importe of this linea de factura.
+     *
+     * @param importe the importe of this linea de factura
+     */
+    public void setImporte(double importe);
 
-	/**
-	 * Gets the factura id of this linea de factura.
-	 *
-	 * @return the factura id of this linea de factura
-	 */
-	public long getFacturaId();
+    /**
+     * Gets the factura id of this linea de factura.
+     *
+     * @return the factura id of this linea de factura
+     */
+    public long getFacturaId();
 
-	/**
-	 * Sets the factura id of this linea de factura.
-	 *
-	 * @param facturaId the factura id of this linea de factura
-	 */
-	public void setFacturaId(long facturaId);
+    /**
+     * Sets the factura id of this linea de factura.
+     *
+     * @param facturaId the factura id of this linea de factura
+     */
+    public void setFacturaId(long facturaId);
 
-	/**
-	 * Gets a copy of this linea de factura as an escaped model instance by wrapping it with an {@link com.liferay.portal.kernel.bean.AutoEscapeBeanHandler}.
-	 *
-	 * @return the escaped model instance
-	 * @see com.liferay.portal.kernel.bean.AutoEscapeBeanHandler
-	 */
-	public LineaDeFactura toEscapedModel();
+    /**
+     * Gets a copy of this linea de factura as an escaped model instance by wrapping it with an {@link com.liferay.portal.kernel.bean.AutoEscapeBeanHandler}.
+     *
+     * @return the escaped model instance
+     * @see com.liferay.portal.kernel.bean.AutoEscapeBeanHandler
+     */
+    public LineaDeFactura toEscapedModel();
 
-	public boolean isNew();
+    public boolean isNew();
 
-	public void setNew(boolean n);
+    public void setNew(boolean n);
 
-	public boolean isCachedModel();
+    public boolean isCachedModel();
 
-	public void setCachedModel(boolean cachedModel);
+    public void setCachedModel(boolean cachedModel);
 
-	public boolean isEscapedModel();
+    public boolean isEscapedModel();
 
-	public void setEscapedModel(boolean escapedModel);
+    public void setEscapedModel(boolean escapedModel);
 
-	public Serializable getPrimaryKeyObj();
+    public Serializable getPrimaryKeyObj();
 
-	public ExpandoBridge getExpandoBridge();
+    public ExpandoBridge getExpandoBridge();
 
-	public void setExpandoBridgeAttributes(ServiceContext serviceContext);
+    public void setExpandoBridgeAttributes(ServiceContext serviceContext);
 
-	public Object clone();
+    public Object clone();
 
-	public int compareTo(LineaDeFactura lineaDeFactura);
+    public int compareTo(LineaDeFactura lineaDeFactura);
 
-	public int hashCode();
+    public int hashCode();
 
-	public String toString();
+    public String toString();
 
-	public String toXmlString();
+    public String toXmlString();
 }
