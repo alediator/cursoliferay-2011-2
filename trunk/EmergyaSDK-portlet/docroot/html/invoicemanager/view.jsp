@@ -77,6 +77,9 @@
 				value="<%= new Double (f.getImporteTotal()).toString()%>"
 				orderable="<%= false%>">
 			</liferay-ui:search-container-column-text>
+			<liferay-ui:search-container-column-jsp path="/html/invoicemanager/actions.jsp" 
+				valign="right">
+			</liferay-ui:search-container-column-jsp>
 		</liferay-ui:search-container-row>
 		<liferay-ui:search-iterator />
 	</liferay-ui:search-container>

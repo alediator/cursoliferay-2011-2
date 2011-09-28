@@ -18,18 +18,11 @@
 	<portlet:param name="view-jsp" value="/html/invoicemanager/add.jsp"></portlet:param>
 </portlet:renderURL>
 
-<portlet:renderURL var="editFacturaURL">
-	<portlet:param name="view-jsp" value="/html/invoicemanager/edit.jsp"></portlet:param>
-</portlet:renderURL>
-
 <div class="lfr-portlet-toolbar">
 	<span class="lfr-toolbar-button view-button <%= toolbarItem.equals("view-all") ? "current" : ""%>">	
 		<a href="<%= viewFacturasURL %>">Mostrar todo</a>
 	</span>
 	<span class="lfr-toolbar-button add-button <%= toolbarItem.equals("add") ? "current" : ""%>">	
 		<a href="<%= addFacturaURL %>">Crear Facturas</a>
-	</span>
-	<span class="lfr-toolbar-button edit-button <%= toolbarItem.equals("edit") ? "current" : ""%>">	
-		<a href="<%= editFacturaURL %>">Editar Factura</a>
 	</span>
 </div>
