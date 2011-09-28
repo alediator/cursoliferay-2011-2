@@ -59,9 +59,9 @@
 						searchContainer.getStart(),
 						searchContainer.getEnd());
 				
-				total = FacturaLocalServiceUtil.searchCount(company.getCompanyId(), java.lang.String keywords,
+				/* total = FacturaLocalServiceUtil.searchCount(company.getCompanyId(), java.lang.String keywords,
 				        int start, int end,
-				        com.liferay.portal.kernel.util.OrderByComparator comparator);
+				        com.liferay.portal.kernel.util.OrderByComparator comparator); */
 
 				pageContext.setAttribute("results", results);
 				pageContext.setAttribute("total", total);
