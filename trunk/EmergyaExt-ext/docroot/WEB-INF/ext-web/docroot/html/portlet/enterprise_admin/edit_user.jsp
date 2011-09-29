@@ -144,6 +144,8 @@ allGroups.addAll(GroupLocalServiceUtil.getUserGroupsRelatedGroups(userGroups));
 String[] mainSections = PropsValues.USERS_FORM_ADD_MAIN;
 String[] identificationSections = PropsValues.USERS_FORM_ADD_IDENTIFICATION;
 String[] miscellaneousSections = PropsValues.USERS_FORM_ADD_MISCELLANEOUS;
+//Added professionalSections
+String[] professionalSections = {"profesional-details","experience"};
 
 if (selUser != null) {
 	if (portletName.equals(PortletKeys.MY_ACCOUNT)) {
@@ -158,9 +160,11 @@ if (selUser != null) {
 	}
 }
 
-String[] allSections = ArrayUtil.append(mainSections, ArrayUtil.append(identificationSections, miscellaneousSections));
+//MOD: String[] allSections = ArrayUtil.append(mainSections, ArrayUtil.append(identificationSections, miscellaneousSections));
+String[] allSections = ArrayUtil.append(mainSections, ArrayUtil.append(identificationSections, professionalSections));
 
-String[][] categorySections = {mainSections, identificationSections, miscellaneousSections};
+//MOD: String[][] categorySections = {mainSections, identificationSections, miscellaneousSections};
+String[][] categorySections = {mainSections, identificationSections, professionalSections};
 
 String curSection = mainSections[0];
 
@@ -335,5 +339,6 @@ else {
 %>
 
 <%!
-private static String[] _CATEGORY_NAMES = {"user-information", "identification", "miscellaneous"};
+//MOD: private static String[] _CATEGORY_NAMES = {"user-information", "identification", "miscellaneous"};
+private static String[] _CATEGORY_NAMES = {"user-information", "identification", "professional-information"};
 %>
