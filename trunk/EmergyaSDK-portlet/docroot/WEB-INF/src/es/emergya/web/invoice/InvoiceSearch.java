@@ -96,13 +96,13 @@ public class InvoiceSearch extends SearchContainer<Factura>{
 	static Map<String, String> orderableHeaders = new HashMap<String, String>();
 	
 	static {
-		headerNames.add("Nombre del cliente");
-		headerNames.add("Importe total");
-		headerNames.add("Descripcion");
+		headerNames.add(InvoiceDisplayTerms.NOMBRE_CLIENTE);
+		headerNames.add(InvoiceDisplayTerms.IMPORTE_TOTAL);
+		headerNames.add(InvoiceDisplayTerms.DESCRIPCION);
 		
-		orderableHeaders.put("Nombre del cliente", "Nombre del cliente");
-		orderableHeaders.put("Importe total", "Importe total");
-		orderableHeaders.put("Descripcion", "Descripcion");
+		orderableHeaders.put(InvoiceDisplayTerms.NOMBRE_CLIENTE, InvoiceDisplayTerms.NOMBRE_CLIENTE);
+		orderableHeaders.put(InvoiceDisplayTerms.IMPORTE_TOTAL, InvoiceDisplayTerms.IMPORTE_TOTAL);
+		orderableHeaders.put(InvoiceDisplayTerms.DESCRIPCION, InvoiceDisplayTerms.DESCRIPCION);
 	}
 	
 	public static final String EMPTY_RESULTS_MESSAGE = "no-invoice";

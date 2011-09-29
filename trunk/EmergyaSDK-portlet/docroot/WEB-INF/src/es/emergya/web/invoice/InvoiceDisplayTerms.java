@@ -18,9 +18,9 @@ public class InvoiceDisplayTerms extends DisplayTerms{
 	}
 	
 	// Paso 2: Literales que representan los nombres de cada campo
-	public static String DESCRIPCION= "Descripción";
-	public static String NOMBRE_CLIENTE = "Nombre de cliente";
-	public static String IMPORTE_TOTAL= "Importe total";
+	public static String DESCRIPCION= "invoice.description";
+	public static String NOMBRE_CLIENTE = "invoice.costumer-name";
+	public static String IMPORTE_TOTAL= "invoice.total";
 	
 	// Paso 3: Atributos para cada campo que se va a mostrar en la tabla
 	protected String descripcion;
