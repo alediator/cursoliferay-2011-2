@@ -9,6 +9,7 @@
 		<portlet id="visorimagenes"></portlet>
 		<portlet id="visordeavatar"></portlet>
 		<portlet id="invoicemanager"></portlet>
+		<portlet id="customfields"></portlet>
 	</category>
 	<category name="category.development">
 		<portlet id="gestor01"></portlet>
