@@ -105,7 +105,7 @@ public class InvoiceSearch extends SearchContainer<Factura>{
 		orderableHeaders.put("Descripcion", "Descripcion");
 	}
 	
-	public static final String EMPTY_RESULTS_MESSAGE = "No hay facturas disponibles";
+	public static final String EMPTY_RESULTS_MESSAGE = "no-invoice";
 	
 	
 }

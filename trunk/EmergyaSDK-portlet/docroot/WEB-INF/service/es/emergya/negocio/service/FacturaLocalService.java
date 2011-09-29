@@ -245,7 +245,6 @@ public interface FacturaLocalService {
     */
     @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
     public int searchCount(long companyId, java.lang.String keywords,
-        int start, int end,
         com.liferay.portal.kernel.util.OrderByComparator comparator);
 
     /**
@@ -264,7 +263,7 @@ public interface FacturaLocalService {
     @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
     public java.util.List<es.emergya.negocio.model.Factura> search(
         long companyId, java.lang.String descripcion,
-        java.lang.String nombreCliente, java.lang.Long importeFactura,
+        java.lang.String nombreCliente, java.lang.Double importeFactura,
         int start, int end,
         com.liferay.portal.kernel.util.OrderByComparator comparator, boolean and);
 
@@ -283,7 +282,6 @@ public interface FacturaLocalService {
     */
     @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
     public int searchCount(long companyId, java.lang.String descripcion,
-        java.lang.String nombreCliente, java.lang.Long importeFactura,
-        int start, int end,
+        java.lang.String nombreCliente, java.lang.Double importeFactura,
         com.liferay.portal.kernel.util.OrderByComparator comparator, boolean and);
 }

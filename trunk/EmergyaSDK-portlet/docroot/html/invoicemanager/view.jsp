@@ -14,6 +14,8 @@
 */
 --%>
 
+<%@page import="com.liferay.portal.kernel.util.OrderByComparator"%>
+<%@page import="es.emergya.web.invoice.InvoiceSearchTerm"%>
 <%@page import="com.liferay.portal.kernel.util.ParamUtil"%>
 <%@page import="es.emergya.web.invoice.InvoiceDisplayTerms"%>
 <%@page import="es.emergya.negocio.service.FacturaLocalServiceUtil"%>
@@ -40,6 +42,13 @@
 
 <form method="post" action="<%=actionPortletUrl%>">
 	<liferay-ui:search-container searchContainer="<%= new es.emergya.web.invoice.InvoiceSearch(renderRequest, portletUrl) %>">
+	
+		<%
+			InvoiceDisplayTerms displayTerms = (InvoiceDisplayTerms) searchContainer.getDisplayTerms();
+			InvoiceSearchTerm searchTerms = (InvoiceSearchTerm) searchContainer.getSearchTerms();
+			OrderByComparator comparator = searchContainer.getOrderByComparator();
+		%>
+	
 		<liferay-ui:search-container-results>
 			<%
 				//total = FacturaLocalServiceUtil.getFacturasCount();
@@ -49,15 +58,30 @@
 				System.out.println("searchContainer.getStart() --> "+ searchContainer.getStart());
 				System.out.println("searchContainer.getEnd() --> "+ searchContainer.getEnd());
 				
-				String descricion = ParamUtil.getString(renderRequest, InvoiceDisplayTerms.DESCRIPCION);
-				String nombreCliente = ParamUtil.getString(renderRequest, InvoiceDisplayTerms.NOMBRE_CLIENTE);
-				Long importeTotal = ParamUtil.getLong(renderRequest, InvoiceDisplayTerms.IMPORTE_TOTAL);
 				
 				
-				
-				results = FacturaLocalServiceUtil.getFacturas(
+				/* results = FacturaLocalServiceUtil.getFacturas(
 						searchContainer.getStart(),
-						searchContainer.getEnd());
+						searchContainer.getEnd()); */
+				
+				if(searchTerms.isAdvancedSearch()){
+					total = FacturaLocalServiceUtil.searchCount(company.getCompanyId(), searchTerms.getDescripcion(),
+							searchTerms.getNombreCliente(), searchTerms.getImporteTotal(),
+					        comparator,
+					        searchTerms.isAndOperator());
+					results = FacturaLocalServiceUtil.search(company.getCompanyId(),searchTerms.getDescripcion(),
+							searchTerms.getNombreCliente(), searchTerms.getImporteTotal(),
+							searchContainer.getStart(), searchContainer.getEnd(),
+					        comparator,
+					        searchTerms.isAndOperator());
+				}else{
+
+					total = FacturaLocalServiceUtil.searchCount(company.getCompanyId(), searchTerms.getKeywords(),
+					        comparator);
+					results = FacturaLocalServiceUtil.search(company.getCompanyId(), searchTerms.getKeywords(),
+							searchContainer.getStart(), searchContainer.getEnd(),
+					        comparator);
+				}
 				
 				/* total = FacturaLocalServiceUtil.searchCount(company.getCompanyId(), java.lang.String keywords,
 				        int start, int end,

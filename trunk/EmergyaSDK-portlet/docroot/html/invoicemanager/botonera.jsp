@@ -20,9 +20,9 @@
 
 <div class="lfr-portlet-toolbar">
 	<span class="lfr-toolbar-button view-button <%= toolbarItem.equals("view-all") ? "current" : ""%>">	
-		<a href="<%= viewFacturasURL %>">Mostrar todo</a>
+		<a href="<%= viewFacturasURL %>"><liferay-ui:message key="invoice.show-all" /></a>
 	</span>
 	<span class="lfr-toolbar-button add-button <%= toolbarItem.equals("add") ? "current" : ""%>">	
-		<a href="<%= addFacturaURL %>">Crear Facturas</a>
+		<a href="<%= addFacturaURL %>"><liferay-ui:message key="invoice.add-invoice" /></a>
 	</span>
 </div>

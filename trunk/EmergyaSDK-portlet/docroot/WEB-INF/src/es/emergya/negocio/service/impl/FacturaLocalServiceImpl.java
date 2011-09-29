@@ -107,16 +107,16 @@ public class FacturaLocalServiceImpl extends FacturaLocalServiceBaseImpl {
 	 */
 	public List<Factura> search(long companyId, String keywords, int start,
 			int end, OrderByComparator comparator) {
-		String descripcion = "";
-		String nombreCliente = "";
-		Long importeFactura = null;
+		String descripcion = null;
+		String nombreCliente = null;
+		Double importeFactura = null;
 		boolean and = false;
 
 		if (keywords != null && !keywords.equals("")) {
 			descripcion = keywords;
 			nombreCliente = keywords;
 			try {
-				importeFactura = Long.decode(keywords);
+				importeFactura = Double.parseDouble(keywords);
 			} catch (Exception e) {
 				importeFactura = null;
 			}
@@ -138,18 +138,18 @@ public class FacturaLocalServiceImpl extends FacturaLocalServiceBaseImpl {
 	 * @param comparator
 	 * @return
 	 */
-	public int searchCount(long companyId, String keywords, int start, int end,
+	public int searchCount(long companyId, String keywords,
 			OrderByComparator comparator) {
-		String descripcion = "";
-		String nombreCliente = "";
-		Long importeFactura = null;
+		String descripcion = null;
+		String nombreCliente = null;
+		Double importeFactura = null;
 		boolean and = false;
 
 		if (keywords != null && !keywords.equals("")) {
 			descripcion = keywords;
 			nombreCliente = keywords;
 			try {
-				importeFactura = Long.decode(keywords);
+				importeFactura = Double.parseDouble(keywords);
 			} catch (Exception e) {
 				importeFactura = null;
 			}
@@ -159,7 +159,7 @@ public class FacturaLocalServiceImpl extends FacturaLocalServiceBaseImpl {
 		}
 
 		return searchCount(companyId, descripcion, nombreCliente,
-				importeFactura, start, end, comparator, and);
+				importeFactura, comparator, and);
 	}
 
 	/**
@@ -177,7 +177,7 @@ public class FacturaLocalServiceImpl extends FacturaLocalServiceBaseImpl {
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Factura> search(long companyId, String descripcion,
-			String nombreCliente, Long importeFactura, int start, int end,
+			String nombreCliente, Double importeFactura, int start, int end,
 			OrderByComparator comparator, boolean and) {
 		List<Factura> resultado = new ArrayList<Factura>();
 
@@ -208,7 +208,7 @@ public class FacturaLocalServiceImpl extends FacturaLocalServiceBaseImpl {
 	 * @return
 	 */
 	public int searchCount(long companyId, String descripcion,
-			String nombreCliente, Long importeFactura, int start, int end,
+			String nombreCliente, Double importeFactura,
 			OrderByComparator comparator, boolean and) {
 		int resultado = 0;
 
@@ -235,7 +235,7 @@ public class FacturaLocalServiceImpl extends FacturaLocalServiceBaseImpl {
 	 * @return
 	 */
 	private DynamicQuery getDynamicQueryByDescripcion_o_NombreCliente_o_ImporteTotal(
-			String descripcion, String nombreCliente, Long importeTotal,
+			String descripcion, String nombreCliente, Double importeTotal,
 			boolean order, boolean and) {
 
 		// Paso 1: Creamos la dynamic query
@@ -255,12 +255,12 @@ public class FacturaLocalServiceImpl extends FacturaLocalServiceBaseImpl {
 					descripcion);
 		}
 		if (nombreCliente != null) {
-			criterio2 = RestrictionsFactoryUtil.eq("nombreCliente",
+			criterio2 = RestrictionsFactoryUtil.ilike("nombreCliente",
 					nombreCliente);
 		}
 		if (importeTotal != null) {
-			criterio3 = RestrictionsFactoryUtil
-					.eq("importeTotal", importeTotal);
+//			criterio3 = RestrictionsFactoryUtil
+//					.eq("importeTotal", importeTotal);
 		}
 		Junction junction;
 		if (and) {
@@ -274,15 +274,15 @@ public class FacturaLocalServiceImpl extends FacturaLocalServiceBaseImpl {
 		if (criterio2 != null) {
 			junction.add(criterio2);
 		}
-		if (criterio2 != null) {
+		if (criterio3 != null) {
 			junction.add(criterio3);
 		}
 		dynamicQuery.add(junction);
 
-		// Paso 3: Orden
-		if (order) {
-			dynamicQuery.addOrder(OrderFactoryUtil.asc("descripcion"));
-		}
+//		// Paso 3: Orden
+//		if (order) {
+//			dynamicQuery.addOrder(OrderFactoryUtil.asc("descripcion"));
+//		}
 
 		return dynamicQuery;
 	}

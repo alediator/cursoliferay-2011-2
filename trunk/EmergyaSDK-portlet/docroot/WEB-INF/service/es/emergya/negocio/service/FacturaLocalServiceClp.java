@@ -48,16 +48,16 @@ public class FacturaLocalServiceClp implements FacturaLocalService {
             "search", long.class, java.lang.String.class, int.class, int.class,
             com.liferay.portal.kernel.util.OrderByComparator.class);
     private MethodKey _searchCountMethodKey16 = new MethodKey(_classLoaderProxy.getClassName(),
-            "searchCount", long.class, java.lang.String.class, int.class,
-            int.class, com.liferay.portal.kernel.util.OrderByComparator.class);
+            "searchCount", long.class, java.lang.String.class,
+            com.liferay.portal.kernel.util.OrderByComparator.class);
     private MethodKey _searchMethodKey17 = new MethodKey(_classLoaderProxy.getClassName(),
             "search", long.class, java.lang.String.class,
-            java.lang.String.class, java.lang.Long.class, int.class, int.class,
-            com.liferay.portal.kernel.util.OrderByComparator.class,
+            java.lang.String.class, java.lang.Double.class, int.class,
+            int.class, com.liferay.portal.kernel.util.OrderByComparator.class,
             boolean.class);
     private MethodKey _searchCountMethodKey18 = new MethodKey(_classLoaderProxy.getClassName(),
             "searchCount", long.class, java.lang.String.class,
-            java.lang.String.class, java.lang.Long.class, int.class, int.class,
+            java.lang.String.class, java.lang.Double.class,
             com.liferay.portal.kernel.util.OrderByComparator.class,
             boolean.class);
 
@@ -475,12 +475,11 @@ public class FacturaLocalServiceClp implements FacturaLocalService {
     }
 
     public int searchCount(long companyId, java.lang.String keywords,
-        int start, int end,
         com.liferay.portal.kernel.util.OrderByComparator comparator) {
         Object returnObj = null;
 
         MethodHandler methodHandler = new MethodHandler(_searchCountMethodKey16,
-                companyId, keywords, start, end, comparator);
+                companyId, keywords, comparator);
 
         try {
             returnObj = _classLoaderProxy.invoke(methodHandler);
@@ -498,7 +497,7 @@ public class FacturaLocalServiceClp implements FacturaLocalService {
 
     public java.util.List<es.emergya.negocio.model.Factura> search(
         long companyId, java.lang.String descripcion,
-        java.lang.String nombreCliente, java.lang.Long importeFactura,
+        java.lang.String nombreCliente, java.lang.Double importeFactura,
         int start, int end,
         com.liferay.portal.kernel.util.OrderByComparator comparator, boolean and) {
         Object returnObj = null;
@@ -522,14 +521,13 @@ public class FacturaLocalServiceClp implements FacturaLocalService {
     }
 
     public int searchCount(long companyId, java.lang.String descripcion,
-        java.lang.String nombreCliente, java.lang.Long importeFactura,
-        int start, int end,
+        java.lang.String nombreCliente, java.lang.Double importeFactura,
         com.liferay.portal.kernel.util.OrderByComparator comparator, boolean and) {
         Object returnObj = null;
 
         MethodHandler methodHandler = new MethodHandler(_searchCountMethodKey18,
-                companyId, descripcion, nombreCliente, importeFactura, start,
-                end, comparator, and);
+                companyId, descripcion, nombreCliente, importeFactura,
+                comparator, and);
 
         try {
             returnObj = _classLoaderProxy.invoke(methodHandler);

@@ -264,10 +264,8 @@ public class FacturaLocalServiceWrapper implements FacturaLocalService {
     * @return
     */
     public int searchCount(long companyId, java.lang.String keywords,
-        int start, int end,
         com.liferay.portal.kernel.util.OrderByComparator comparator) {
-        return _facturaLocalService.searchCount(companyId, keywords, start,
-            end, comparator);
+        return _facturaLocalService.searchCount(companyId, keywords, comparator);
     }
 
     /**
@@ -285,7 +283,7 @@ public class FacturaLocalServiceWrapper implements FacturaLocalService {
     */
     public java.util.List<es.emergya.negocio.model.Factura> search(
         long companyId, java.lang.String descripcion,
-        java.lang.String nombreCliente, java.lang.Long importeFactura,
+        java.lang.String nombreCliente, java.lang.Double importeFactura,
         int start, int end,
         com.liferay.portal.kernel.util.OrderByComparator comparator, boolean and) {
         return _facturaLocalService.search(companyId, descripcion,
@@ -306,11 +304,10 @@ public class FacturaLocalServiceWrapper implements FacturaLocalService {
     * @return
     */
     public int searchCount(long companyId, java.lang.String descripcion,
-        java.lang.String nombreCliente, java.lang.Long importeFactura,
-        int start, int end,
+        java.lang.String nombreCliente, java.lang.Double importeFactura,
         com.liferay.portal.kernel.util.OrderByComparator comparator, boolean and) {
         return _facturaLocalService.searchCount(companyId, descripcion,
-            nombreCliente, importeFactura, start, end, comparator, and);
+            nombreCliente, importeFactura, comparator, and);
     }
 
     public FacturaLocalService getWrappedFacturaLocalService() {

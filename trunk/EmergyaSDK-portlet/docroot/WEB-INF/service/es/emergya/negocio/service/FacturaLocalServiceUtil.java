@@ -270,10 +270,8 @@ public class FacturaLocalServiceUtil {
     * @return
     */
     public static int searchCount(long companyId, java.lang.String keywords,
-        int start, int end,
         com.liferay.portal.kernel.util.OrderByComparator comparator) {
-        return getService()
-                   .searchCount(companyId, keywords, start, end, comparator);
+        return getService().searchCount(companyId, keywords, comparator);
     }
 
     /**
@@ -291,7 +289,7 @@ public class FacturaLocalServiceUtil {
     */
     public static java.util.List<es.emergya.negocio.model.Factura> search(
         long companyId, java.lang.String descripcion,
-        java.lang.String nombreCliente, java.lang.Long importeFactura,
+        java.lang.String nombreCliente, java.lang.Double importeFactura,
         int start, int end,
         com.liferay.portal.kernel.util.OrderByComparator comparator, boolean and) {
         return getService()
@@ -313,12 +311,11 @@ public class FacturaLocalServiceUtil {
     * @return
     */
     public static int searchCount(long companyId, java.lang.String descripcion,
-        java.lang.String nombreCliente, java.lang.Long importeFactura,
-        int start, int end,
+        java.lang.String nombreCliente, java.lang.Double importeFactura,
         com.liferay.portal.kernel.util.OrderByComparator comparator, boolean and) {
         return getService()
                    .searchCount(companyId, descripcion, nombreCliente,
-            importeFactura, start, end, comparator, and);
+            importeFactura, comparator, and);
     }
 
     public static void clearService() {
