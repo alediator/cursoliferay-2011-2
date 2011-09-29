@@ -1,3 +1,4 @@
+<%@page import="com.liferay.portal.model.Role"%>
 <%@page import="com.liferay.portal.model.User"%>
 <%@page import="java.util.Enumeration"%>
 <%@page import="com.liferay.portlet.expando.model.ExpandoBridge"%>
@@ -27,3 +28,11 @@
 	editable="<%= true%>"
 	label="<%= true%>">
 </liferay-ui:custom-attribute-list>
+
+<liferay-ui:custom-attributes-available className="<%= com.liferay.portal.model.User.class.getName()%>">
+	<h1>Hay campos de usuario</h1>
+</liferay-ui:custom-attributes-available>
+
+<liferay-ui:custom-attributes-available className="<%= com.liferay.portal.model.Role.class.getName()%>">
+	<h1>Hay campos de rol</h1>
+</liferay-ui:custom-attributes-available>
