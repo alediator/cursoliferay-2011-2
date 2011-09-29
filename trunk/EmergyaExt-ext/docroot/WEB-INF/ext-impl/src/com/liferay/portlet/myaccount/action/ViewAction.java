@@ -45,7 +45,7 @@ public class ViewAction extends PortletAction {
 		}
 
 		if (!renderRequest.getWindowState().equals(WindowState.MAXIMIZED)) {
-			return mapping.findForward("portlet.my_account.view");
+			return mapping.findForward("portlet.my_account.edit_user");
 		}
 
 		User user = PortalUtil.getUser(renderRequest);
@@ -58,7 +58,7 @@ public class ViewAction extends PortletAction {
 		dynamicRequest.setParameter(
 			"p_u_i_d", String.valueOf(user.getUserId()));
 
-		return mapping.findForward("portlet.my_account.view");
+		return mapping.findForward("portlet.my_account.edit_user");
 	}
 
 }
